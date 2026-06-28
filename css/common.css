@@ -1,0 +1,53 @@
+/* =========================
+    Common Variables
+========================= */
+:root {
+    --primary-color: #37517e;
+    --secondary-color: #47b2e4;
+    --text-color: #444444;
+    --heading-color: #37517e;
+    --light-bg: #f5f6f8;
+    --white: #ffffff;
+}
+
+/* =========================
+    Base
+========================= */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    color: var(--text-color);
+    background-color: var(--white);
+}
+
+/* =========================
+    Common Layout
+========================= */
+section {
+    padding: 60px 0;
+}
+
+/* =========================
+    Common Section Title
+========================= */
+.section-title {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.section-title h2 {
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--heading-color);
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.section-title p {
+    font-size: 16px;
+    color: var(--text-color);
+    line-height: 1.5;
+}
+
