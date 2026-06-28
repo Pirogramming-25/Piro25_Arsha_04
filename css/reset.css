@@ -10,7 +10,7 @@ form, fieldset, legend, input, label, select, option, button {
     font-family: 'Noto Sans KR', sans-serif;
 }
 ul,ol,li {list-style:none;}
-table, tr, th, td {border-collapse:collapase;}
+table, tr, th, td {border-collapse:collapse;}
 a {color:#000; text-decoration:none;}
 textarea {resize:none; border:0;}
 fieldset {border:0;}
