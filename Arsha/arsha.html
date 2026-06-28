@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arsha</title>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+   
+   
+    <!-- ==========================================
+     1. 최상단 프리뷰 탑바 (Demo Preview Top Bar) 
+     ========================================== -->
+    <div class="demo-preview-bar">
+        <div class="preview-container">
+            
+            <!-- [좌측 블록] 공급처 로고 및 디바이스 토글 아이콘 그룹 -->
+            <div class="preview-left-block">
+                <!-- 파트 A: 플랫폼 브랜드 로고 이미지 영역 -->
+                <div class="preview-brand-logo">
+                    <a href="https://bootstrapmade.com/" title="BootstrapMade Homepage">
+                        <img src="#" class="img-preview-logo">
+                    </a>
+                </div>
+                
+                <!-- 파트 B: 디바이스 해상도 변경 토글 버튼 모음 -->
+                <div class="preview-device-switcher">
+                    <!-- 데스크톱 뷰 버튼 -->
+                    <button type="button" class="btn-device-view active" aria-label="Desktop view">
+                        <img src="#" class="img-icon">
+                    </button>
+                    <!-- 태블릿 뷰 버튼 -->
+                    <button type="button" class="btn-device-view" aria-label="Tablet view">
+                        <img src="#" class="img-icon">
+                    </button>
+                    <!-- 모바일 뷰 버튼 -->
+                    <button type="button" class="btn-device-view" aria-label="Mobile phone view">
+                        <img src="#" class="img-icon">
+                    </button>
+                </div>
+            </div>
+            
+            <!-- [중앙 블록] 템플릿 이름 및 이동 화살표 네비게이션 그룹 -->
+            <div class="preview-center-block">
+                <!-- 이전 템플릿 이동 화살표 -->
+                <a href="#" class="btn-nav-arrow" title="Previous Template">
+                    <img src="#" class="img-icon">
+                </a>
+                
+                <!-- 템플릿 텍스트 명시 -->
+                <span class="template-name">Arsha</span>
+                
+                <!-- 다음 템플릿 이동 화살표 -->
+                <a href="#" class="btn-nav-arrow" title="Next Template">
+                    <img src="#" class="img-icon">
+                </a>
+            </div>
+            
+            <!-- [우측] Hide 버튼 및 다운로드 버튼 그룹 -->
+            <div class="preview-right-block">
+                <!-- Hide Demo Bar 버튼 (다운로드 왼쪽에 위치) -->
+                <div class="preview-hide-action">
+                    <a href="#" class="btn-preview-hide" title="Hide Demo Bar">
+                        <img src="#" class="img-icon-hide">
+                    </a>
+                </div>
+                
+                <!-- 핵심 액션: 다운로드 버튼 -->
+                <div class="preview-download-action">
+                    <a href="https://bootstrapmade.com/arsha-free-bootstrap-html-template-corporate/" class="btn-preview-download">
+                        <img src="#" class="img-icon-dl">
+                        <span>Download</span>
+                    </a>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    <!-- 프리뷰 탑바 구조 끝!-->
+    <!-- ==========================================
+        
+    
+    
+    2. 메인 내비게이션 바 (Main Navigation Header) 
+        ========================================== -->
+    <header id="header" class="main-header">
+        <div class="header-container">
+
+            <!-- [좌측 블록] 사이트 브랜드 로고 영역 -->
+            <div class="header-logo-block">
+                <h1 class="logo-title">
+                    <a href="index.html">Arsha</a>
+                </h1>
+                <!-- 이미지 로고 교체용 공간 (필요시 활성화) -->
+                <!-- 
+                <a href="index.html" class="logo-img-link">
+                    <img src="#" class="img-main-logo">
+                </a> 
+                -->
+            </div>
+
+            <!-- [중앙 블록] 메인 내비게이션 메뉴 (Blog 단일 링크 & Drop Down 4 유지) -->
+            <nav id="navbar" class="main-navbar">
+                <ul class="nav-menu-list">
+                    <li class="nav-item"><a href="#hero" class="nav-link active">Home</a></li>
+                    <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+                    <li class="nav-item"><a href="#services" class="nav-link">Services</a></li>
+                    <li class="nav-item"><a href="#portfolio" class="nav-link">Portfolio</a></li>
+                    <li class="nav-item"><a href="#team" class="nav-link">Team</a></li>
+                    <li class="nav-item"><a href="#pricing" class="nav-link">Pricing</a></li>
+                    
+                    <!-- 블로그 메뉴 (일반 단일 링크) -->
+                    <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
+
+                    <!-- 드롭다운 메뉴 (Drop Down 4 포함) -->
+                    <li class="nav-item has-dropdown">
+                        <a href="#" class="nav-link-toggle">
+                            <span>Drop Down</span>
+                            <img src="#" class="img-icon-chevron-down">
+                        </a>
+                        <ul class="dropdown-sub-menu">
+                            <li><a href="#">Drop Down 1</a></li>
+                            <li class="has-deep-dropdown">
+                                <a href="#" class="nav-link-deep-toggle">
+                                    <span>Deep Drop Down</span>
+                                    <img src="#" class="img-icon-chevron-right">
+                                </a>
+                                <ul class="dropdown-deep-menu">
+                                    <li><a href="#">Deep Drop Down 1</a></li>
+                                    <li><a href="#">Deep Drop Down 2</a></li>
+                                    <li><a href="#">Deep Drop Down 3</a></li>
+                                    <li><a href="#">Deep Drop Down 4</a></li>
+                                    <li><a href="#">Deep Drop Down 5</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">Drop Down 2</a></li>
+                            <li><a href="#">Drop Down 3</a></li>
+                            <li><a href="#">Drop Down 4</a></li>
+                        </ul>
+                    </li>
+                    
+                    <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+
+            <!-- [우측 블록] 액션 버튼 및 모바일 토글 스위치 (하나의 박스로 원상 복구) -->
+            <div class="header-right-block">
+                <!-- 데스크톱용 Get Started 시작하기 버튼 -->
+                <a href="#about" class="btn-get-started">Get Started</a>
+                
+                <!-- 모바일용 메뉴 트리거 버튼 -->
+                <button type="button" class="btn-mobile-menu-toggle" aria-label="Toggle Navigation Menu">
+                    <img src="#" class="img-icon-burger">
+                </button>
+            </div>
+
+        </div>
+    </header>
+    <!-- 메인 내비게이션 바 구조 끝 -->
+
+    
+    
+    
+    
+    
+    <!-- ==========================================
+     3. 히어로 섹션 (Hero 대문 비주얼 영역) 
+     ========================================== -->
+    <section id="hero" class="hero-section">
+        <div class="hero-container">
+
+            <!-- [좌측 블록] 웰컴 메시지 및 핵심 행동 유도(CTA) 버튼 그룹 -->
+            <div class="hero-content-left">
+                
+                <!-- 메인 핵심 헤드라인 문구 -->
+                <h1 class="hero-main-title">
+                    Better Solutions For Your Business
+                </h1>
+                
+                <!-- 보조 서브 설명 문구 -->
+                <h2 class="hero-sub-title">
+                    We are team of talented designers making websites with Bootstrap
+                </h2>
+                
+                <!-- 버튼들을 수평으로 나란히 정렬하기 위한 그룹 상자 -->
+                <div class="hero-buttons-group">
+                    
+                    <!-- 파트 A: 시작하기 링크 버튼 -->
+                    <a href="#about" class="btn-hero-start">
+                        <span>Get Started</span>
+                    </a>
+                    
+                    <!-- 파트 B: 팝업 동영상 재생 링크 버튼 (아이콘 이미지 포함 구조) -->
+                    <a href="https://www.youtube.com/watch?v=LXb3EKWsInQ" class="btn-hero-video" data-gall="portfolioGallery">
+                        <!-- 재생 모양 아이콘 빈 이미지 공간 -->
+                        <img src="#" class="img-icon-play">
+                        <span>Watch Video</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+
+            <!-- [우측 블록] 애니메이션 효과가 들어갈 메인 그래픽 일러스트 영역 -->
+            <div class="hero-image-right">
+                <!-- 둥둥 떠 있는 효과를 줄 웹사이트 대문 메인 이미지 공간 -->
+                <img src="#" class="img-hero-animated">
+            </div>
+
+        </div>
+    </section>
+    <!-- 히어로 섹션 구조 끝, 이 아래로 4번 Clients(협력사 로고 바)가 이어집니다. -->
+
+    
+    
+    
+    
+    <!-- ==========================================
+     4. 클라이언트 로고 바 (로고 8개 순수 CSS 무한 롤링) 
+     ========================================== -->
+    <section id="clients" class="clients-section">
+        
+        <div class="clients-wrap">
+            
+            <div class="clients-track">
+
+                <!-- [원본 세트: 1~8] -->
+                <div class="client-item"><img src="#" class="img-client-logo" alt="Client 1"></div>
+                <div class="client-item"><img src="#" class="img-client-logo" alt="Client 2"></div>
+                <div class="client-item"><img src="#" class="img-client-logo" alt="Client 3"></div>
+                <div class="client-item"><img src="#" class="img-client-logo" alt="Client 4"></div>
+                <div class="client-item"><img src="#" class="img-client-logo" alt="Client 5"></div>
+                <div class="client-item"><img src="#" class="img-client-logo" alt="Client 6"></div>
+                <div class="client-item"><img src="#" class="img-client-logo" alt="Client 7"></div>
+                <div class="client-item"><img src="#" class="img-client-logo" alt="Client 8"></div>
+
+                <!-- [복제 세트: 1~8 복제본 - 무한 루프 핵심] -->
+                <div class="client-item"><img src="#" class="img-client-logo" alt="Client 1 Clone"></div>
+                <div class="client-item"><img src="#" class="img-client-logo" alt="Client 2 Clone"></div>
+                <div class="client-item"><img src="#" class="img-client-logo" alt="Client 3 Clone"></div>
+                <div class="client-item"><img src="#" class="img-client-logo" alt="Client 4 Clone"></div>
+                <div class="client-item"><img src="#" class="img-client-logo" alt="Client 5 Clone"></div>
+                <div class="client-item"><img src="#" class="img-client-logo" alt="Client 6 Clone"></div>
+                <div class="client-item"><img src="#" class="img-client-logo" alt="Client 7 Clone"></div>
+                <div class="client-item"><img src="#" class="img-client-logo" alt="Client 8 Clone"></div>
+
+            </div>
+            
+        </div>
+    </section>
+    <!-- 클라이언트 로고 바 구조 끝 -->
+
+
+
+    <!-- ==========================================
+     5. 회사 소개 섹션 (About Us Section)
+     ========================================== -->
+    <section id="about" class="about-section">
+        
+        <!-- 섹션 공통 타이틀 -->
+        <div class="section-title">
+            <h2>About Us</h2>
+        </div>
+
+        <div class="about-container">
+
+            <!-- [좌측 블록] 상세 설명 및 체크리스트 -->
+            <div class="about-content-left">
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                </p>
+                <!-- 핵심 포인트 체크리스트 그룹 -->
+                <ul class="about-checklist">
+                    <li><img src="#" class="img-icon-check"> Ullamco laboris nisi ut aliquip ex ea commodo consequat</li>
+                    <li><img src="#" class="img-icon-check"> Duis aute irure dolor in reprehenderit in voluptate velit</li>
+                    <li><img src="#" class="img-icon-check"> Ullamco laboris nisi ut aliquip ex ea commodo consequat</li>
+                </ul>
+            </div>
+
+            <!-- [우측 블록] 추가 설명 및 Learn More 버튼 -->
+            <div class="about-content-right">
+                <p>
+                    Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.
+                </p>
+                <!-- 상세 페이지 이동 버튼 -->
+                <a href="#" class="btn-learn-more">
+                <span>Read More</span>
+                <img src="#" class="img-icon-arrow">
+            </a>
+            </div>
+
+        </div>
+    </section>
+    <!-- 회사 소개 섹션 구조 끝 -->
+ 
+
+
+    <!-- ================================================== -->
+    <!-- 6. 아코디언 섹션 (Why Us Section)                  -->
+    <!-- 외부 라이브러리 없이 HTML5 표준 태그만 사용함       -->
+    <!-- ================================================== -->
+    <section id="why-us" class="why-us-section">
+        <!-- 섹션의 가로 폭과 중앙 정렬을 관리하는 컨테이너 -->
+        <div class="why-us-container">
+
+            <!-- [좌측 블록] 텍스트와 아코디언 메뉴 영역 -->
+            <div class="why-us-content-left">
+                <!-- 메인 제목 -->
+                <h3>Eum ipsam laborum deleniti <strong>velit pariatur architecto aut nihil</strong></h3>
+                <!-- 서브 설명 문구 -->
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit.</p>
+
+                <!-- 
+                [아코디언 기능 구현]
+                <details>: 기본적으로 닫혀 있고 클릭 시 열리는 HTML5 전용 태그
+                <summary>: 클릭 가능한 제목 영역 (화살표 포함)
+                -->
+                
+                <!-- 아코디언 아이템 01 -->
+                <details class="accordion-item">
+                    <summary>
+                        <span class="num">01</span> Non consectetur a erat nam at lectus urna duis?
+                        <!-- 클릭 시 회전 애니메이션을 줄 화살표 아이콘 -->
+                        <img src="#" class="img-icon-chevron-down">
+                    </summary>
+                    <div class="accordion-content">
+                        <p>Feugiat pretium nibh ipsum consequat. Tempus iaculis urna id volutpat lacus laoreet non curabitur gravida.</p>
+                    </div>
+                </details>
+
+                <!-- 아코디언 아이템 02 -->
+                <details class="accordion-item">
+                    <summary>
+                        <span class="num">02</span> Feugiat scelerisque varius morbi enim nunc?
+                        <img src="#" class="img-icon-chevron-down">
+                    </summary>
+                    <div class="accordion-content">
+                        <p>Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi tristique. Senectus et netus et malesuada fames.</p>
+                    </div>
+                </details>
+
+                <!-- 아코디언 아이템 03 -->
+                <details class="accordion-item">
+                    <summary>
+                        <span class="num">03</span> Dolor sit amet consectetur adipiscing elit?
+                        <img src="#" class="img-icon-chevron-down">
+                    </summary>
+                    <div class="accordion-content">
+                        <p>Eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis orci. Faucibus pulvinar elementum integer enim.</p>
+                    </div>
+                </details>
+            </div>
+
+            <!-- [우측 블록] 그래픽 이미지 영역 -->
+            <div class="why-us-content-right">
+                <!-- 반응형 이미지 태그 -->
+                <img src="#" class="img-why-us">
+            </div>
+
+        </div>
+    </section>
+    <!-- 6번 Why Us 섹션 끝 -->
+
+
+    <!-- ================================================== -->
+    <!-- 7. 스킬 섹션 -->
+    <!-- ================================================== -->
+    <section id="skills" class="skills-section">
+        <!-- 내부 콘텐츠를 중앙에 배치하고 너비를 제한하는 컨테이너입니다. -->
+        <div class="skills-container">
+
+            <!-- 왼쪽에 배치할 스킬 관련 이미지가 들어갈 공간입니다. -->
+            <div class="skills-content-left">
+                <img src="#" class="img-skills">
+            </div>
+
+            <!-- 오른쪽에 스킬 설명과 프로그레스 바 목록이 들어가는 공간입니다. -->
+            <div class="skills-content-right">
+                <h3>Voluptatem dignissimos provident quasi corporis voluptates</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+
+                <!-- 각각의 스킬 막대 하나를 구성하는 단위입니다. -->
+                <div class="progress-item">
+                    <!-- 스킬 이름(HTML 등)과 퍼센트 수치(100% 등)를 텍스트로 보여줍니다. -->
+                    <div class="progress-info">
+                        <span>HTML</span>
+                        <span>100%</span>
+                    </div>
+                    <div class="progress-bar-wrap"> <!-- 전체 게이지의 회색 배경 역할을 합니다. -->
+                        <div class="progress-bar" style="width: 100%;"></div> <!-- 실제 색상이 채워지는 막대입니다. 여기서 width 값을 조절하여 퍼센트를 시각화합니다. -->
+                    </div>
+                </div>
+
+                <div class="progress-item">
+                    <div class="progress-info">
+                        <span>CSS</span>
+                        <span>90%</span>
+                    </div>
+                    <div class="progress-bar-wrap">
+                        <div class="progress-bar" style="width: 90%;"></div>
+                    </div>
+                </div>
+
+                <div class="progress-item">
+                    <div class="progress-info">
+                        <span>JavaScript</span>
+                        <span>75%</span>
+                    </div>
+                    <div class="progress-bar-wrap">
+                        <div class="progress-bar" style="width: 75%;"></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <!-- 7번 skills 섹션 끝 -->
+    
+    
+    <!-- ================================================== -->
+    <!-- 8. 서비스 섹션 -->
+    <!-- ================================================== -->
+    <section id="services" class="services-section">
+        
+        <!-- 섹션의 제목인 "Services"가 들어가는 영역입니다. CSS로 제목의 폰트 크기나 정렬을 관리하기 좋습니다. -->
+        <div class="section-title">
+            <h2>Services</h2>
+            <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+        </div>
+        
+        <!-- 서비스 카드들을 나란히 배치하기 위한 부모 컨테이너입니다. CSS에서 display: grid 또는 flex를 사용하여 카드들을 가로로 나열할 수 있습니다. -->
+        <div class="services-container">
+            <div class="service-item"> <!--  개별 서비스 정보를 담는 카드 박스입니다. -->
+                <div class="service-image">
+                    <img src="#">
+                </div>
+                <h4>Lorem Ipsum</h4>
+                <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p>
+            </div>
+
+            <div class="service-item">
+                <div class="service-image">
+                    <img src="#">
+                </div>
+                <h4>Sed ut perspiciatis</h4>
+                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore</p>
+            </div>
+
+            <div class="service-item">
+                <div class="service-image">
+                    <img src="#">
+                </div>
+                <h4>Magni Dolores</h4>
+                <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia</p>
+            </div>
+
+            <div class="service-item">
+                <div class="service-image">
+                    <img src="#">
+                </div>
+                <h4>Nemo Enim</h4>
+                <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis</p>
+            </div>
+        </div>
+    </section>
+    <!-- 8번 services 섹션 끝 -->
+
+
+
+    <!-- ================================================== -->
+    <!-- 9. 워크 프로세스 섹션 -->
+    <!-- ================================================== -->
+    <section id="work-process" class="work-process-section">
+        <div class="section-title">
+            <h2>WORK PROCESS</h2>
+            <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+        </div>
+
+        <div class="process-container">
+            
+            <!-- 이미지, 숫자, 제목, 설명, 상세 리스트를 모두 포함하는 하나의 카드 단위입니다. -->
+            <div class="process-card">
+                <div class="process-image">
+                    <img src="#">
+                </div>
+
+                <!-- 이미지와 제목 사이에 위치한 '01', '02', '03' 숫자 배지입니다. CSS로 원형 디자인을 적용하기 좋습니다. -->
+                <div class="step-badge">01</div>
+                <h4>Research & Analysis</h4>
+                <p>Nemo enim ipsum voluptatem quia voluptas sit aspernatur aut odit aut fugit...</p>
+                
+                <!-- 하단의 체크 표시와 함께 나열된 세부 항목들입니다. ul과 li 태그를 사용하여 목록 구조를 만들었습니다. (체크 아이콘은 CSS의 list-style이나 ::before 가상 요소로 추가하면 깔끔합니다.) -->
+                <ul class="process-list">
+                    <li>Market Research</li>
+                    <li>Data Analysis</li>
+                    <li>User Feedback</li>
+                </ul>
+            </div>
+
+            <div class="process-card">
+                <div class="process-image">
+                    <img src="#">
+                </div>
+                <div class="step-badge">02</div>
+                <h4>Design & Planning</h4>
+                <p>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis...</p>
+                <ul class="process-list">
+                    <li>Wireframing</li>
+                    <li>UI/UX Design</li>
+                    <li>Prototyping</li>
+                </ul>
+            </div>
+
+            
+            <div class="process-card">
+                <div class="process-image">
+                    <img src="#">
+                </div>
+                <div class="step-badge">03</div>
+                <h4>Development & Launch</h4>
+                <p>Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore...</p>
+                <ul class="process-list">
+                    <li>Development</li>
+                    <li>Testing</li>
+                    <li>Deployment</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+     <!-- 9번 workspace 섹션 끝 -->
+    
+
+    
+</body>
+</html>
