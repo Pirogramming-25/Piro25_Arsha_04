@@ -1,5 +1,4 @@
 # Piro25_Arsha_04
-## Piro25_Arsha_04
 
 HTML/CSS를 사용하여 Arsha 페이지를 클론코딩하는 팀 프로젝트입니다.
 JavaScript는 사용하지 않고, 반응형 웹 구현을 목표로 합니다.
