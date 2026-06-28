@@ -1,13 +1,13 @@
 .jhw-pricing {
     padding: 60px 100px;
-    background-color: #f5f6f8;
+    background-color: var(--light-bg);
     text-align: center;
 
 }
 .jhw-pricing h2 {
     font-size: 32px;
     font-weight : 700;
-    color: #37517e;  
+    color: var(--primary-color);  
     margin-bottom: 15px;
     padding-bottom: 10px;
     align-self: center;  
@@ -44,7 +44,7 @@
 }
 
 .jhw-plan {
-    background-color: #ffff;
+    background-color: var(--white);
     width: 100%;
     border-radius: 10px;
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
@@ -74,12 +74,12 @@
 }
 
 .jhw-money {
-    color: #47b2e4;
+    color: var(--secondary-color);
     font-weight: 400;
     font-size: 30px;
 }
 .jhw-price {
-    color: #47b2e4;
+    color:var(--secondary-color);
     font-weight: 400;
     font-size: 50px;
 }
@@ -91,7 +91,7 @@
     width: 100px;
 }
 .jhw-month {
-    color: color(srgb 0.266667 0.266667 0.266667 / 0.5);
+    color: rgba(68, 68, 68, 0.5);
     position: absolute;
     top:30px;
     left: 53px;
@@ -107,10 +107,10 @@
     margin-bottom: 50px;
 }
 .jhw-inplan {
-    color: #444444b3;
+    color: rgba(68, 68, 68, 0.7);
 }
 .jhw-outplan {
-    color: #44444466;
+    color: rgba(68, 68, 68, 0.4);
 }
 
 .jhw-inplan::before {
@@ -131,31 +131,31 @@
 
 .jhw-buy {
     margin-top: 30px;
-    border:2px solid rgb(71, 178, 228);
+    border:2px solid var(--secondary-color);
     padding: 10px 30px;
     border-radius: 50px;
 }
 .jhw-buy p {
-    color: rgb(71, 178, 228);
+    color: var(--secondary-color);
     font-weight: 500;
 }
 .jhw-buy-2 {
     margin-top: 30px;
-    border:2px solid rgb(71, 178, 228);
+    border:2px solid var(--secondary-color);
     padding: 10px 30px;
     border-radius: 50px;
-    background-color: rgb(71, 178, 228) ;
+    background-color: var(--secondary-color);
 }
 .jhw-buy-2 p {
-    color: rgb(255, 255, 255);
+    color: var(--white);
     font-weight: 500;
 }
 
 .jhw-buy:hover {
-    background-color: rgb(71, 178, 228);
+    background-color: var(--secondary-color);
 }
 .jhw-buy:hover p {
-    color: #fff;
+    color: var(--white);
 }
 
 .jhw-plan:nth-child(2)::before {
@@ -165,7 +165,7 @@
     left: 0;
     right: 0;
     height: 4px;
-    background-color: rgb(71, 178, 228); 
+    background-color: var(--secondary-color); 
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
 }
@@ -227,7 +227,7 @@
 
 .jhw-testimonials {
     padding: 60px 100px;
-    background-color: #ffffff;
+    background-color: var(--white);
     text-align: center;}
 
 .jhw-test-title {
@@ -266,7 +266,7 @@
 }
 .jhw-profile-job {
     font-size: 13px;
-    color:#444444b3;
+    color:var(--text-color);
     margin-bottom: 10px;
 }
 .jhw-stars {
@@ -283,7 +283,7 @@
 .jhw-testimonial-text {
     margin-top: 20px;
     font-style: italic;       
-    color: #444444;          
+    color: var(--text-color);          
     font-size: 15px;         
     line-height: 1.6;      
     position: relative;
