@@ -181,47 +181,38 @@
         grid-template-columns: repeat(3,1fr);
     }
 }
-
-
 @keyframes jhw-fadeInUp {
     from {
         opacity: 0;
-        margin-top: 60px; 
+        transform: translateY(60px);
     }
     to {
         opacity: 1;
-        margin-top: 0;
+        transform: translateY(0);
     }
 }
 
 .jhw-pricing h2,
 .jhw-divider,
 .jhw-min-title,
-.jhw-plan{
-    animation-name: jhw-fadeInUp;
-    animation-fill-mode: both;
-    animation-timeline: scroll(root); 
-    animation-timing-function: ease-out; 
-}
-
-.jhw-pricing h2,
-.jhw-divider,
-.jhw-min-title {
-    animation-range: 15% 35%; 
+.jhw-plan,
+.jhw-test-title  {
+    animation: jhw-fadeInUp 1.2s ease-out both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 40%;
 }
 
 .jhw-plan:nth-of-type(1) {
-    animation-range: 22% 47%; 
+    animation-range: entry 10% cover 45%;
 }
 
 .jhw-plan:nth-of-type(2) {
-    animation-range: 26% 51%;
+    animation-range: entry 15% cover 50%;
 }
 
 .jhw-plan:nth-of-type(3) {
-    animation-range: 30% 55%;
+    animation-range: entry 20% cover 55%;
 }
-
 
 /* testimonials */
 
