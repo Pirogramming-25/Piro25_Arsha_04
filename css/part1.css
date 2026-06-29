@@ -121,7 +121,7 @@
     top: 32px;
     left: 0;
     right: 0;
-    background-color: var(--primary-color);
+    background-color: rgba(55, 81, 126, 0.5);
     padding: 27px 0;
     z-index: 9999;
     transition: all 0.5s;
@@ -161,6 +161,7 @@
     display: flex;
     align-items: center;
     gap: 2px;                    /* 메뉴 요소들 사이의 공통 간격 */
+    white-space: nowrap;
 }
 
 /* 1차 메뉴 아이템 구조 */
@@ -258,7 +259,7 @@
 .kyk_dropdown-deep-menu {
     top: 0;
     left: auto; 
-    right: 100%; 
+    right: 100%;    
 }
 
 .kyk_has-deep-dropdown {
@@ -307,6 +308,49 @@
     font-size: 28px;
     color: var(--white);
     margin-left: 10px;
+}
+
+/* 992px 이하 태블릿 및 모바일 환경 */
+@media (max-width: 1200px) {
+    /* 1. 첫 번째 메뉴 아이템부터 Contact까지만 숨기기 (nth-child 사용) */
+    /* 총 12개의 li 중 1~7번째 아이템(Home~Contact)만 숨김 */
+    .kyk_nav-menu-list > li:nth-child(-n+9) {
+        display: none;
+    }
+    .kyk_btn-mobile-menu-toggle {
+        display: block;        
+        width: 22px;           /* 버튼 너비 */
+        height: 22px;          /* 버튼 높이 */
+        cursor: pointer;
+        margin-left: 15px;
+        
+        /* 아이콘 중앙 정렬을 위한 설정 */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right:10px;    
+    }
+   
+    
+    /* 3. Get Started 버튼은 유지 */
+    .kyk_nav-item-btn {
+        display: flex;
+    }
+
+    .kyk_header-container {
+        justify-content: space-between; /* 로고와 나머지 요소를 양 끝으로 */
+    }
+
+    /* 2. 네비게이션 영역 자체를 숨기거나 정렬 변경 */
+    .kyk_main-navbar {
+        flex-grow: 0; /* PC에서 사용하던 확장성을 제거 */
+    }
+
+    /* 3. 리스트 내의 아이템(버튼들) 제어 */
+    .kyk_nav-menu-list {
+        margin-left: 0; /* PC에서 오른쪽으로 밀던 설정을 초기화 */
+        gap: 0;         /* 간격 제거 */
+    }
 }
 /* ------------------------------------------------ */
 
