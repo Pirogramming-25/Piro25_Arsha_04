@@ -296,7 +296,7 @@
 .jsh-section-title,
 .jsh-portfolio-filters,
 .jsh-portfolio-card,
-.jsh-team-card,
+.jsh-team-card-inner,
 .jsh-subscribe-text h2,
 .jsh-subscribe-text p,
 .jsh-subscribe-form,
@@ -332,19 +332,23 @@
     gap: 24px;
 }
 .jsh-team-card {
+    height: 100%;
+    transition: transform 0.3s ease;
+}
+.jsh-team-card:hover {
+    transform: translateY(-8px);
+}
+.jsh-team-card-inner {
     background-color: #ffffff;
+    height: 100%;
+    min-height: 210px;
     display:flex;
     align-items: center;
     gap: 30px;
     padding: 30px;
     border-radius: 5px;
     box-shadow: 0 2px 25px rgba(0, 0, 0, 0.08);
-    transition: transform 0.3s ease;
 }
-.jsh-team-card:hover {
-    transform: translateY(-8px);
-}
-
 .jsh-team-img {
     width: 150px; height: 150px;
     border-radius: 50%;
@@ -409,7 +413,7 @@
         max-width: 960px;
         grid-template-columns: 1fr;
     }
-    .jsh-team-card {
+    .jsh-team-card-inner {
         padding: 40px;
         gap: 40px;
     }
@@ -421,7 +425,7 @@
     .jsh-team-container {
         width: 90%;
     }
-    .jsh-team-card {
+    .jsh-team-card-inner {
         gap: 20px;
         padding: 28px 24px;
         text-align: left;
