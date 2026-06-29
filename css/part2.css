@@ -598,7 +598,6 @@
 .syw-form-group input:focus,
 .syw-form-group textarea:focus {
     border-color: var(--secondary-color);
-    box-shadow: 0 0 0 3px rgba(71, 178, 228, 0.12);
 }
 
 .syw-form-submit {
@@ -623,7 +622,7 @@
 
 
 /* --------------------------------------------------------------------------
-   Animation
+   애니메이션
 -------------------------------------------------------------------------- */
 
 .syw-section-title,
@@ -658,7 +657,7 @@
     }
 }
 /* --------------------------------------------------------------------------
-   Responsive
+   반응형
 -------------------------------------------------------------------------- */
 
 @media (max-width: 991px) {
@@ -668,7 +667,6 @@
         max-width: 720px;
         flex-direction: column;
     }
-
     .syw-skills-content-left,
     .syw-skills-content-right,
     .syw-contact-info-wrap,
@@ -676,61 +674,49 @@
         width: 100%;
         flex: 0 0 100%;
     }
-
     .syw-services-container {
         max-width: 900px;
         padding: 0 24px;
         grid-template-columns: repeat(2, 1fr);
     }
-
     .syw-process-container {
         max-width: 760px;
         grid-template-columns: 1fr;
     }
-
     .syw-process-image {
         height: 320px;
     }
-
     .syw-cta-section {
         padding: 90px 0;
     }
-
     .syw-cta-container {
         text-align: center;
     }
-
     .syw-cta-btn-wrap {
         width: 100%;
         flex: 0 0 auto;
     }
-
     .syw-contact-map {
         height: 300px;
     }
 }
-
 @media (max-width: 767px) {
     .syw-section-title {
         padding-bottom: 32px;
     }
-
     .syw-section-title h2 {
         font-size: 28px;
     }
-
     .syw-section-title p {
         font-size: 15px;
         padding: 0 12px;
     }
-
     .syw-skills-section,
     .syw-services-section,
     .syw-work-process-section,
     .syw-contact-section {
         padding: 55px 0 65px;
     }
-
     .syw-skills-container,
     .syw-services-container,
     .syw-process-container,
@@ -739,84 +725,67 @@
         max-width: 540px;
         padding: 0 20px;
     }
-
     .syw-skills-title {
         font-size: 28px;
     }
-
     .syw-skills-desc {
         font-size: 15px;
     }
-
     .syw-progress-bar-wrap {
         height: 9px;
     }
-
     .syw-skill-name,
     .syw-skill-percent {
         font-size: 12px;
     }
-
     .syw-services-container {
         grid-template-columns: 1fr;
     }
-
     .syw-service-item {
         min-height: 260px;
         padding: 48px 40px;
     }
-
     .syw-process-image {
         height: 250px;
     }
-
     .syw-step-badge {
         width: 60px;
         height: 60px;
         font-size: 22px;
         margin: -32px 0 18px 26px;
     }
-
     .syw-process-title,
     .syw-process-desc,
     .syw-process-list {
         margin-left: 26px;
         margin-right: 26px;
     }
-
     .syw-cta-section {
         padding: 80px 0;
         background-attachment: scroll;
     }
-
     .syw-cta-title {
         font-size: 26px;
     }
-
     .syw-cta-desc {
         font-size: 15px;
         line-height: 1.7;
     }
-
     .syw-btn-cta {
         padding: 16px 38px;
         font-size: 15px;
     }
-
     .syw-info-card,
     .syw-contact-form {
         padding: 28px 24px;
     }
-
     .syw-form-row {
         flex-direction: column;
         gap: 0;
     }
-
     .syw-half {
         width: 100%;
     }
-
     .syw-contact-map {
         height: 280px;
     }
