@@ -597,3 +597,212 @@
     87.5%, 96.875% { transform: translate3d(calc(-100% / 3 * 7), 0, 0); }
     100% { transform: translate3d(calc(-100% / 3 * 8), 0, 0); }
 }
+
+
+/* --------------------------------------- */
+
+
+/* ==========================================
+   5. 회사 소개 섹션 (About Us) - 선 길이 및 본문 정밀 교정본
+========================================== */
+
+/* 섹션 전체 레이아웃 */
+.kyk_about-section {
+    width: 100%;
+    padding: 80px 0;
+    background-color: var(--white);
+}
+
+/* ------------------------------------------
+   [교정] 제목 텍스트 길이와 밑줄 길이 1:1 동기화 구조
+------------------------------------------ */
+.kyk_section-title {
+    text-align: center;
+    margin-bottom: 35px;
+
+    opacity: 1;
+    
+}
+
+/* h2 자체를 inline-block으로 만들어 선이 글자 길이를 그대로 따라가게 만듦 */
+.kyk_section-title h2 {
+    display: inline-block;
+    font-size: 32px;
+    font-weight: 700;
+    
+    text-transform: uppercase;
+    color: var(--heading-color);
+    position: relative;
+    padding-bottom: 12px; /* 글자와 선 사이의 타이트한 간격 */
+
+    animation: kyk_slide_up 1s ease-in-out 0.5s forwards;
+    
+    animation-timeline: view(contain);
+
+   
+}
+
+/* 회색 긴 선: 이제 ABOUT US 글자 전체 길이와 100% 일치합니다 */
+.kyk_section-title h2::before {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 100%; /* 글자 가로 길이에 맞춤 */
+    height: 2px;
+    background: #ddd;
+    bottom: 1px;
+    left: 0;
+}
+
+/* 하늘색 포인트 선: 글자 전체 길이의 35% 비율로 정중앙에 위치 */
+.kyk_section-title h2::after {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 35%; /* 글자 길이에 비례한 청량한 포인트 선 */
+    height: 3px;
+    background: var(--secondary-color);
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%); /* 정확히 글자 기준 정중앙 정렬 */
+}
+
+
+/* ------------------------------------------
+   [교정] 본문 양끝 정렬 및 글 줄 라인 일치화
+------------------------------------------ */
+.kyk_about-container {
+    width: 100%;
+    max-width: 1125px;
+    margin: 0 auto;
+    padding: 40px 80px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start; /* 좌우 첫 줄 높이 일치 */
+    gap: 40px;
+}
+
+.kyk_about-content-left {
+    flex: 1;
+    width: 50%;
+    opacity: 0;
+    
+    animation: kyk_slide_up 1s ease-in-out 0.5s forwards;
+    transform-origin: center center; 
+    animation-timeline: view(contain);
+    
+
+}
+
+.kyk_about-content-right {
+    flex: 1;
+    width: 50%;
+    
+    opacity: 0;
+    
+    animation: kyk_slide_up 1s ease-in-out 0.5s forwards;
+    transform-origin: center center; 
+    animation-timeline: view(contain);
+
+}
+
+
+.kyk_about-content-left p,
+.kyk_about-content-right p {
+    font-size: 16px;
+    color: var(--text-color);
+    line-height: 1.6;
+    
+    margin: 0 0 20px 0;
+}
+
+/* 체크리스트 이격 정렬 */
+.kyk_about-checklist {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.kyk_about-checklist li {
+    display: flex;
+    align-items: center; 
+    gap: 10px;
+    margin-bottom: 14px;
+}
+
+.kyk_img-icon-check {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+}
+
+.kyk_about-checklist p {
+    font-size: 16px;
+    color: var(--text-color);
+    margin: 0;
+    line-height: 1.4;
+    text-align: left; /* 체크리스트 텍스트는 좌측 정렬 */
+}
+
+/* ------------------------------------------
+   우측 Read More 버튼 디테일 교정
+------------------------------------------ */
+.kyk_about-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 24px;
+    border: 1.5px solid var(--secondary-color); /* 이미지처럼 부드러운 선 두께 */
+    color: var(--secondary-color);
+    font-size: 16px;
+    font-weight: 500;
+    text-decoration: none;
+    border-radius: 4px;
+    background-color: transparent;
+    transition: all 0.3s ease;
+    margin-top: 5px;
+}
+
+.kyk_img-icon-arrow {
+    width: 16px;
+    height: 16px;
+    transition: transform 0.3s ease;
+}
+
+/* 호버 이펙트 */
+.kyk_about-btn:hover {
+    background-color: var(--secondary-color);
+    color: var(--white);
+}
+
+.kyk_about-btn:hover .kyk_img-icon-arrow {
+    filter: brightness(0) invert(1);
+    transform: translateX(4px);
+}
+
+
+/* ==========================================
+   [5번 섹션 전용 모바일 반응형 미디어쿼리]
+========================================== */
+@media (max-width: 991px) {
+    .kyk_about-container {
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    .kyk_about-content-left,
+    .kyk_about-content-right {
+        width: 100%;
+    }
+}
+@keyframes kyk_slide_up {
+    from {
+        opacity: 0;
+        transform: translateY(100px); /* 아래에서 대기 */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);    /* 화면에 다 들어오면 제자리에 칼같이 고정 */
+    }
+}
