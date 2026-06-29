@@ -612,100 +612,26 @@
 
 .syw-section-title,
 .syw-skills-container,
+.syw-services-container,
+.syw-process-container,
 .syw-cta-container,
 .syw-contact-container {
-    animation: syw-section-fade-up 1.35s ease-out both;
+    opacity: 0;
+    transform: translateY(100px) scale(0.96);
+    animation: syw-scroll-fade-up 1.4s ease-out both;
     animation-timeline: view();
     animation-range: entry 0% cover 42%;
 }
 
-.syw-service-item,
-.syw-process-card {
-    animation: syw-card-fade-up 1.15s ease-out both;
-    animation-timeline: view();
-}
-
-.syw-service-item:nth-child(1),
-.syw-process-card:nth-child(1) {
-    animation-range: entry 0% cover 30%;
-}
-
-.syw-service-item:nth-child(2),
-.syw-process-card:nth-child(2) {
-    animation-range: entry 3% cover 33%;
-}
-
-.syw-service-item:nth-child(3),
-.syw-process-card:nth-child(3) {
-    animation-range: entry 6% cover 36%;
-}
-
-.syw-service-item:nth-child(4) {
-    animation-range: entry 9% cover 39%;
-}
-
-.syw-info-item {
-    animation: syw-contact-item-fade-up 0.9s ease-out both;
-    animation-timeline: view();
-}
-
-.syw-info-item:nth-child(1) {
-    animation-range: entry 0% cover 22%;
-}
-
-.syw-info-item:nth-child(2) {
-    animation-range: entry 4% cover 26%;
-}
-
-.syw-info-item:nth-child(3) {
-    animation-range: entry 8% cover 30%;
-}
-
-@keyframes syw-section-fade-up {
-    from {
+@keyframes syw-scroll-fade-up {
+    0% {
         opacity: 0;
-        transform: translateY(80px);
+        transform: translateY(100px) scale(0.96);
     }
 
-    to {
+    100% {
         opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes syw-card-fade-up {
-    from {
-        opacity: 0;
-        translate: 0 70px;
-    }
-
-    to {
-        opacity: 1;
-        translate: 0 0;
-    }
-}
-
-@keyframes syw-contact-item-fade-up {
-    from {
-        opacity: 0;
-        translate: 0 28px;
-    }
-
-    to {
-        opacity: 1;
-        translate: 0 0;
-    }
-}
-
-@keyframes sywFadeUp {
-    from {
-        opacity: 0;
-        translate: 0 24px;
-    }
-
-    to {
-        opacity: 1;
-        translate: 0 0;
+        transform: translateY(0) scale(1);
     }
 }
 
