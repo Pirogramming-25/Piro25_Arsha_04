@@ -1,0 +1,328 @@
+.jsh-portfolio-section {
+    padding: 60px 0;
+}
+.jsh-portfolio-container {
+    width: 88%;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+/* Section Title */
+.jsh-section-title {
+    text-align: center;
+    padding-bottom: 60px;
+    opacity:1;
+    transform: translateY(0);
+}
+.jsh-section-title h2 {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #37517e;
+}
+.jsh-title-line {
+    width: 160px;
+    height: 1px;
+    background-color: #dddddd;
+    margin: 0 auto 20px;
+}
+.jsh-title-line span {
+    display: block;
+    width: 60px;
+    height: 3px;
+    background-color: #47b2e4;
+    margin: 0 auto;
+    transform: translateY(-1px);
+}
+.jsh-section-title p {
+    font-size: 15px;
+    font-weight: 400;
+    color: #444444;
+    margin: 0 auto;
+}
+
+/*Filter*/
+.jsh-portfolio-filter-wrap input {
+    display: none;
+}
+.jsh-portfolio-filters {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    margin-bottom: 35px;
+}
+.jsh-portfolio-filters label {
+    padding: 8px 20px 10px 20px;
+    border-radius: 50px;
+    font-size: 15px;
+    font-weight: 500;
+    color: #444444;
+    transition: all 0.3s ease;
+}
+#jsh-filter-all:checked ~ .jsh-portfolio-filters label[for="jsh-filter-all"],
+#jsh-filter-app:checked ~ .jsh-portfolio-filters label[for="jsh-filter-app"],
+#jsh-filter-card:checked ~ .jsh-portfolio-filters label[for="jsh-filter-card"],
+#jsh-filter-web:checked ~ .jsh-portfolio-filters label[for="jsh-filter-web"] {
+    background-color: #47b2e4;
+    color: #ffffff;
+}
+#jsh-filter-all:checked ~ .jsh-portfolio-grid {
+    animation: jsh-grid-show-all 0.5s ease both;
+}
+#jsh-filter-app:checked ~ .jsh-portfolio-grid {
+    animation: jsh-grid-show-app 0.5s ease both;
+}
+#jsh-filter-card:checked ~ .jsh-portfolio-grid {
+    animation: jsh-grid-show-card 0.5s ease both;
+}
+#jsh-filter-web:checked ~ .jsh-portfolio-grid {
+    animation: jsh-grid-show-web 0.5s ease both;
+}
+@keyframes jsh-grid-show-all {
+    from {
+        opacity: 0;
+        transform: translateY(45px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+@keyframes jsh-grid-show-app {
+    from {
+        opacity: 0;
+        transform: translateY(45px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+@keyframes jsh-grid-show-card {
+    from {
+        opacity: 0;
+        transform: translateY(45px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+@keyframes jsh-grid-show-web {
+    from {
+        opacity: 0;
+        transform: translateY(45px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/*Grid*/
+.jsh-portfolio-grid {
+    column-count: 3;
+    column-gap: 24px;
+}
+.jsh-portfolio-card {
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 24px;
+    break-inside: avoid;
+}
+.jsh-portfolio-card > img {
+    display: block;
+    width: 100%;
+    height:auto;
+}
+
+#jsh-filter-app:checked ~ .jsh-portfolio-grid .jsh-portfolio-card:not(.jsh-app) {
+    display: none;
+}
+#jsh-filter-card:checked ~ .jsh-portfolio-grid .jsh-portfolio-card:not(.jsh-card) {
+    display: none;
+}
+#jsh-filter-web:checked ~ .jsh-portfolio-grid .jsh-portfolio-card:not(.jsh-web) {
+    display: none;
+}
+.jsh-portfolio-info {
+    position: absolute;
+    bottom: -90px;
+    padding: 15px;
+    left: 0;
+    right: 0;
+    background-color: #ffffff;
+    opacity:0;
+    transition: all 0.5s ease;
+}
+.jsh-portfolio-card:hover .jsh-portfolio-info {
+    bottom: 0;
+    opacity: 1;
+}
+.jsh-portfolio-info h4 {
+    margin-bottom: 8px;
+    color: #37517e;
+    font-size: 18px;
+    font-weight: 600;
+}
+.jsh-portfolio-info p {
+    color: #76777A;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.4;
+}
+.jsh-portfolio-info .jsh-portfolio-links {
+    position: absolute;
+    right: 18px;
+    bottom: 21px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.jsh-portfolio-info .jsh-portfolio-links a {
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+.jsh-portfolio-info .jsh-portfolio-links a img {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+}
+
+/* 반응형 */
+
+/* 2열로 */
+@media (max-width: 992px) {
+    .jsh-portfolio-section {
+        padding: 50px 0;
+    }
+    .jsh-portfolio-container {
+        width: 92%;
+    }
+    .jsh-portfolio-grid {
+        width: 860px;
+        max-width: 100%;
+        min-width: 620px;
+        margin: 0 auto;
+        column-count: 2;
+        column-gap: 24px;
+    }
+}
+
+/* 1열: 모바일 */
+@media (max-width: 768px) {
+    .jsh-portfolio-section {
+        padding: 50px 0;
+    }
+    .jsh-portfolio-container {
+        width: 100%;
+    }
+    .jsh-section-title {
+        padding-bottom: 55px;
+    }
+    .jsh-section-title h2 {
+        font-size: 28px;
+    }
+    .jsh-section-title p {
+        width: 72%;
+        max-width: 430px;
+        margin: 0 auto;
+        font-size: 14px;
+        line-height: 1.6;
+    }
+    .jsh-portfolio-filters {
+        flex-wrap: wrap;
+        row-gap: 10px;
+        margin-bottom: 45px;
+    }
+    .jsh-portfolio-filters label {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+    .jsh-portfolio-grid {
+        width: 68%;
+        max-width: none;
+        min-width: 0;
+        margin: 0 auto;
+        column-count: 1;
+        column-gap: 0;
+    }
+    .jsh-portfolio-card {
+        margin-bottom: 30px;
+    }
+}
+
+/* 아주 작은 화면 */
+@media (max-width: 420px) {
+    .jsh-portfolio-grid {
+        width: 82%;
+    }
+    .jsh-section-title p {
+        width: 84%;
+    }
+}
+
+@media (max-width: 360px) {
+    .jsh-section-title h2 {
+        font-size: 24px;
+    }
+    .jsh-portfolio-filters label {
+        padding: 7px 13px;
+        font-size: 13px;
+    }
+    .jsh-portfolio-info {
+        padding: 12px;
+    }
+    .jsh-portfolio-info h4 {
+        font-size: 16px;
+    }
+    .jsh-portfolio-info p {
+        font-size: 13px;
+    }
+    .jsh-portfolio-info .jsh-portfolio-links {
+        right: 12px;
+        bottom: 16px;
+        gap: 8px;
+    }
+    .jsh-portfolio-info .jsh-portfolio-links a img {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+/* 등장 애니메이션 */
+.jsh-section-title h2,
+.jsh-section-title p,
+.jsh-portfolio-filters,
+.jsh-portfolio-grid {
+    animation: jsh-fade-up 0.7s ease both;
+}
+
+.jsh-section-title h2 {
+    animation-delay: 0s;
+}
+
+.jsh-section-title p {
+    animation-delay: 0.15s;
+}
+
+.jsh-portfolio-filters {
+    animation-delay: 0.3s;
+}
+
+.jsh-portfolio-grid {
+    animation-delay: 0.45s;
+}
+
+@keyframes jsh-fade-up {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

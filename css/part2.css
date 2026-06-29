@@ -1,1074 +1,535 @@
 /* ==========================================================================
    [Part 2] Skills, Services, Work Process, CTA, Contact
    담당: 신예원 (syw-)
-   ========================================================================== */
+========================================================================== */
 
-/* 임시 테마 변수 (common.css에 선언되어 있다면 생략 가능) */
-:root {
-    --syw-primary: #47b2e4;       /* 포인트 하늘색 */
-    --syw-dark-navy: #37517e;     /* 메인 네이비 (제목, 강조색) */
-    --syw-text-gray: #444444;     /* 기본 본문 텍스트 */
-    --syw-bg-light: #f3f5fa;      /* 연한 회색 배경색 */
-    --syw-white: #ffffff;
-    --syw-border-color: #e2e8f0;
-}
 
 /* --------------------------------------------------------------------------
-   0. 공통 섹션 타이틀 스타일 (Services, Work Process, Contact 공통)
-   -------------------------------------------------------------------------- */
+   0. 공통 섹션 타이틀
+-------------------------------------------------------------------------- */
+
 .syw-section-title {
     text-align: center;
-    padding-bottom: 30px;
+    padding-bottom: 40px;
 }
+
 .syw-section-title h2 {
     font-size: 32px;
-    font-weight: bold;
+    font-weight: 700;
+    color: var(--heading-color);
     text-transform: uppercase;
     margin-bottom: 20px;
     padding-bottom: 20px;
     position: relative;
-    color: var(--syw-dark-navy);
 }
-/* 타이틀 하단 장식선 */
+
 .syw-section-title h2::before {
     content: "";
     position: absolute;
-    display: block;
     width: 120px;
     height: 1px;
-    background: #ddd;
+    background-color: #ddd;
+    left: 50%;
     bottom: 1px;
-    left: calc(50% - 60px);
+    transform: translateX(-50%);
 }
+
 .syw-section-title h2::after {
     content: "";
     position: absolute;
-    display: block;
     width: 40px;
     height: 3px;
-    background: var(--syw-primary);
+    background-color: var(--secondary-color);
+    left: 50%;
     bottom: 0;
-    left: calc(50% - 20px);
+    transform: translateX(-50%);
 }
+
 .syw-section-title p {
-    margin-bottom: 0;
-    color: var(--syw-text-gray);
-    font-size: 15px;
+    color: var(--text-color);
+    font-size: 16px;
+    line-height: 1.6;
+    max-width: 760px;
+    margin: 0 auto;
 }
+
 
 /* --------------------------------------------------------------------------
-   7. 스킬 섹션 (Skills Section)
-   -------------------------------------------------------------------------- */
+   7. Skills
+-------------------------------------------------------------------------- */
 
-   /* ==================================================
-    예원 담당 - 7. Skills 섹션
-    - PC / 태블릿 / 모바일 반응형
-    - progress bar 0부터 차오르는 애니메이션
-    - min-width로 너무 좁아질 때 깨짐 방지
-================================================== */
-
-
-/* ==================================================
-    1. Skills 전체 섹션
-================================================== */
-
-/*
-    Skills 섹션 전체 박스.
-    min-width: 320px을 주면 화면이 너무 작아졌을 때
-    레이아웃이 320px 아래로 무리하게 찌그러지는 것을 막을 수 있다.
-*/
 .syw-skills-section {
     padding: 70px 0;
-    background: #ffffff;
-    overflow: hidden;
-
-    /* 너무 작은 화면에서 섹션이 과하게 찌그러지는 것 방지 */
+    background-color: var(--white);
     min-width: 320px;
+    overflow: hidden;
 }
 
-/*
-    Skills 섹션 내부 요소에만 box-sizing 적용.
-    padding과 border를 포함해서 width를 계산하게 해준다.
-    전체 사이트에 영향을 주지 않기 위해 skills 섹션 안에서만 적용.
-*/
-.syw-skills-section * {
-    box-sizing: border-box;
-}
-
-
-/* ==================================================
-    2. Skills 내부 컨테이너
-================================================== */
-
-/*
-    왼쪽 이미지와 오른쪽 텍스트 영역을 감싸는 큰 박스.
-    PC에서는 가로 2단 배치.
-*/
-.syw-skills-section .syw-skills-container {
-    width: 100%;
+.syw-skills-container {
     max-width: 1140px;
-    min-width: 0;
-
     margin: 0 auto;
     padding: 0 12px;
-
     display: flex;
     flex-flow: row nowrap;
     align-items: center;
     gap: 50px;
 }
 
-
-/* ==================================================
-    3. 왼쪽 이미지 영역
-================================================== */
-
-/*
-    PC 화면에서 왼쪽 이미지 영역은 절반 너비.
-    min-width: 0은 flex 안에서 내용물이 부모보다 커져서
-    가로 스크롤이 생기는 문제를 줄여준다.
-*/
-.syw-skills-section .syw-skills-content-left {
+.syw-skills-content-left,
+.syw-skills-content-right {
     width: 50%;
     min-width: 0;
 }
 
-/*
-    실제 이미지.
-    width: 100%로 부모 영역 안에서 반응형으로 줄어든다.
-*/
-.syw-skills-section .syw-img-skills {
+.syw-img-skills {
     display: block;
     width: 100%;
     max-width: 560px;
-    min-width: 0;
-
     margin: 0 auto;
-
-    animation: sywSkillsFadeUp 0.8s ease both;
+    animation: sywFadeUp 0.8s ease both;
 }
 
-
-/* ==================================================
-    4. 오른쪽 텍스트 영역
-================================================== */
-
-/*
-    오른쪽 제목, 설명, progress bar 영역.
-*/
-.syw-skills-section .syw-skills-content-right {
-    width: 50%;
-    min-width: 0;
-
-    animation: sywSkillsFadeUp 0.8s ease both;
+.syw-skills-content-right {
+    animation: sywFadeUp 0.8s ease both;
     animation-delay: 0.1s;
 }
 
-/*
-    Skills 제목.
-    원본처럼 진한 남색 + 굵은 글씨.
-*/
-.syw-skills-section .syw-skills-title {
-    color: #37517e;
+.syw-skills-title {
+    color: var(--primary-color);
     font-size: 32px;
     font-weight: 700;
     line-height: 1.2;
     margin-bottom: 14px;
 }
 
-/*
-    제목 아래 설명 문장.
-    원본처럼 살짝 기울어진 italic 느낌.
-*/
-.syw-skills-section .syw-skills-desc {
-    color: #666666;
+.syw-skills-desc {
+    color: #666;
     font-size: 16px;
     font-style: italic;
     line-height: 1.6;
     margin-bottom: 28px;
 }
 
-
-/* ==================================================
-    5. Progress Bar 전체 그룹
-================================================== */
-
-.syw-skills-section .syw-progress-group {
+.syw-progress-group {
     width: 100%;
-    min-width: 0;
 }
 
-.syw-skills-section .syw-progress-item {
+.syw-progress-item {
     margin-bottom: 24px;
 }
 
-.syw-skills-section .syw-progress-item:last-child {
+.syw-progress-item:last-child {
     margin-bottom: 0;
 }
 
-
-/* ==================================================
-    6. Progress Bar 위쪽 텍스트 줄
-================================================== */
-
-/*
-    왼쪽에는 스킬 이름, 오른쪽에는 퍼센트 배치.
-*/
-.syw-skills-section .syw-progress-info {
+.syw-progress-info {
     display: flex;
-    flex-flow: row nowrap;
     justify-content: space-between;
     align-items: center;
-
     margin-bottom: 8px;
-    min-width: 0;
 }
 
-/*
-    스킬 이름.
-    white-space: nowrap을 주면 HTML, CSS 같은 짧은 글자가
-    이상하게 줄바꿈되지 않는다.
-*/
-.syw-skills-section .syw-skill-name {
-    color: #444444;
+.syw-skill-name,
+.syw-skill-percent {
+    color: var(--text-color);
     font-size: 13px;
     font-weight: 700;
+    white-space: nowrap;
+}
+
+.syw-skill-name {
     text-transform: uppercase;
-    white-space: nowrap;
 }
 
-/*
-    퍼센트 글씨.
-    이것도 줄바꿈되지 않게 처리.
-*/
-.syw-skills-section .syw-skill-percent {
-    color: #444444;
-    font-size: 13px;
-    font-weight: 700;
-    white-space: nowrap;
-}
-
-
-/* ==================================================
-    7. Progress Bar 막대
-================================================== */
-
-/*
-    progress bar의 회색 배경.
-*/
-.syw-skills-section .syw-progress-bar-wrap {
+.syw-progress-bar-wrap {
     width: 100%;
-    min-width: 0;
-
     height: 10px;
-    background: #e8edf5;
+    background-color: #e8edf5;
     overflow: hidden;
 }
 
-/*
-    실제로 차오르는 파란 막대.
-
-    HTML에 style="width: 90%;"처럼 최종 길이가 들어가 있으므로
-    CSS에서는 width를 건드리지 않는다.
-
-    transform: scaleX(0)으로 처음에는 안 보이게 하고,
-    scaleX(1)이 되면서 최종 width까지 차오르게 만든다.
-*/
-.syw-skills-section .syw-progress-bar {
+.syw-progress-bar {
     height: 100%;
-    background: #37517e;
-
+    background-color: var(--primary-color);
     transform: scaleX(0);
     transform-origin: left center;
-
-    animation-name: sywSkillBarGrow;
-    animation-duration: 1.2s;
-    animation-timing-function: ease;
-    animation-fill-mode: forwards;
+    animation: sywSkillBarGrow 1.2s ease forwards;
 }
 
-/*
-    4개의 bar가 순서대로 차오르도록 시간차를 준다.
-*/
-.syw-skills-section .syw-progress-item:nth-child(1) .syw-progress-bar {
+.syw-progress-item:nth-child(1) .syw-progress-bar {
     animation-delay: 0.1s;
 }
 
-.syw-skills-section .syw-progress-item:nth-child(2) .syw-progress-bar {
+.syw-progress-item:nth-child(2) .syw-progress-bar {
     animation-delay: 0.25s;
 }
 
-.syw-skills-section .syw-progress-item:nth-child(3) .syw-progress-bar {
+.syw-progress-item:nth-child(3) .syw-progress-bar {
     animation-delay: 0.4s;
 }
 
-.syw-skills-section .syw-progress-item:nth-child(4) .syw-progress-bar {
+.syw-progress-item:nth-child(4) .syw-progress-bar {
     animation-delay: 0.55s;
 }
 
-
-/* ==================================================
-    8. 애니메이션 정의
-================================================== */
-
-/*
-    progress bar가 왼쪽에서 오른쪽으로 차오르는 애니메이션.
-*/
-@keyframes sywSkillBarGrow {
-    0% {
-        transform: scaleX(0);
-    }
-
-    100% {
-        transform: scaleX(1);
-    }
-}
-
-/*
-    이미지와 텍스트가 아래에서 살짝 올라오는 효과.
-*/
-@keyframes sywSkillsFadeUp {
-    0% {
-        opacity: 0;
-        transform: translateY(24px);
-    }
-
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-
-/* ==================================================
-    9. 스크롤 진입 애니메이션 보조
-================================================== */
-
-/*
-    JavaScript 없이 스크롤해서 보이는 순간을 완벽하게 잡기는 어렵다.
-    대신 최신 Chrome / Edge에서는 animation-timeline: view()를 사용할 수 있다.
-
-    지원되는 브라우저에서는 화면에 들어올 때 bar가 차오르고,
-    지원되지 않는 브라우저에서는 기본 animation이 실행된다.
-*/
 @supports (animation-timeline: view()) {
-    .syw-skills-section .syw-progress-bar {
+    .syw-progress-bar {
         animation-name: sywSkillBarGrow;
         animation-duration: 1s;
         animation-timing-function: ease;
         animation-fill-mode: both;
-
         animation-timeline: view();
         animation-range: entry 10% cover 35%;
     }
 }
 
 
-/* ==================================================
-    10. 태블릿 반응형
-    기준: 991px 이하
-================================================== */
-
-@media screen and (max-width: 991px) {
-    /*
-        태블릿에서는 이미지가 위,
-        텍스트와 progress bar가 아래로 오도록 세로 배치.
-    */
-    .syw-skills-section {
-        padding: 60px 0;
-        min-width: 320px;
-    }
-
-    .syw-skills-section .syw-skills-container {
-        max-width: 720px;
-
-        flex-flow: column nowrap;
-        align-items: stretch;
-        gap: 34px;
-    }
-
-    .syw-skills-section .syw-skills-content-left,
-    .syw-skills-section .syw-skills-content-right {
-        width: 100%;
-        min-width: 0;
-    }
-
-    .syw-skills-section .syw-img-skills {
-        max-width: 620px;
-    }
-
-    .syw-skills-section .syw-skills-title {
-        font-size: 30px;
-    }
-}
-
-
-/* ==================================================
-    11. 모바일 반응형
-    기준: 767px 이하
-================================================== */
-
-@media screen and (max-width: 767px) {
-    /*
-        모바일에서는 좌우 여백을 조금 더 주고,
-        글자 크기를 줄여서 캡처처럼 자연스럽게 보이게 한다.
-    */
-    .syw-skills-section {
-        padding: 50px 0;
-
-        /*
-            320px보다 더 작은 화면에서는 가로 스크롤이 생길 수 있지만,
-            레이아웃이 완전히 찌그러지는 것보다는 안전하다.
-        */
-        min-width: 320px;
-    }
-
-    .syw-skills-section .syw-skills-container {
-        max-width: 540px;
-        min-width: 0;
-
-        padding: 0 18px;
-        gap: 28px;
-    }
-
-    .syw-skills-section .syw-img-skills {
-        max-width: 100%;
-        min-width: 0;
-    }
-
-    .syw-skills-section .syw-skills-title {
-        font-size: 28px;
-        line-height: 1.18;
-        margin-bottom: 12px;
-    }
-
-    .syw-skills-section .syw-skills-desc {
-        font-size: 15px;
-        line-height: 1.6;
-        margin-bottom: 24px;
-    }
-
-    .syw-skills-section .syw-progress-item {
-        margin-bottom: 22px;
-    }
-
-    .syw-skills-section .syw-skill-name,
-    .syw-skills-section .syw-skill-percent {
-        font-size: 12px;
-    }
-
-    .syw-skills-section .syw-progress-bar-wrap {
-        height: 9px;
-    }
-}
 /* --------------------------------------------------------------------------
-   8. 서비스 섹션 (Services Section)
-   -------------------------------------------------------------------------- */
+   8. Services
+-------------------------------------------------------------------------- */
+
 .syw-services-section {
-    padding: 60px 0;
-    background: var(--syw-bg-light);
+    padding: 70px 0 80px;
+    background-color: var(--light-bg);
+    min-width: 320px;
 }
+
 .syw-services-container {
-    max-width: 800px;
+    max-width: 1140px;
     margin: 60px auto 0;
-    padding: 0 20px;
+    padding: 0 12px;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 24px;
-}
-.syw-service-item {
-    background: var(--syw-white);
-    padding: 60px 30px;
-    border-radius: 4px;
-    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.06);
-    transition: all 0.3s ease-in-out;
-}
-.syw-service-icon {
-    margin-bottom: 20px;
-}
-.syw-service-icon img {
-    width: 50px;
-    height: 43px;
-}
-.syw-service-title {
-    margin-bottom: 15px;
-}
-.syw-service-title a {
-    color: var(--syw-dark-navy);
-    text-decoration: none;
-    transition: color 0.3s;
-    font-size: 20px;
-    font-weight: 1000;
-}
-.syw-service-desc {
-    font-size: 15px;
-    line-height: 24px;
-    color: var(--syw-text-gray);
-    margin-bottom: 0;
-}
-/* 서비스 카드Hover 효과: 살짝 뜨고 제목이 하늘색으로 변경 */
-.syw-service-item:hover {
-    transform: translateY(-10px);
-}
-.syw-service-item:hover .syw-service-title a {
-    color: var(--syw-primary);
+    gap: 30px;
 }
 
-/* --------------------------------------------------------------------------
-   9. 워크 프로세스 섹션 (Work Process Section)
-   -------------------------------------------------------------------------- */
-.syw-work-process-section {
-    padding: 60px 0;
-    background: var(--syw-white);
+.syw-service-item {
+    background-color: var(--white);
+    min-height: 300px;
+    padding: 50px 30px;
+    border-radius: 4px;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.06);
+    display: flex;
+    flex-flow: column;
+    align-items: flex-start;
+    transition: 0.3s ease;
 }
+
+.syw-service-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.09);
+}
+
+.syw-service-icon {
+    margin-bottom: 24px;
+}
+
+.syw-service-icon img {
+    display: block;
+    width: 45px;
+    height: 45px;
+    object-fit: contain;
+}
+
+.syw-service-title {
+    margin-bottom: 16px;
+}
+
+.syw-service-title a {
+    color: var(--primary-color);
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 1.15;
+    transition: color 0.3s;
+}
+
+.syw-service-item:hover .syw-service-title a {
+    color: var(--secondary-color);
+}
+
+.syw-service-desc {
+    color: var(--text-color);
+    font-size: 15px;
+    line-height: 1.6;
+    margin: 0;
+}
+
+
+/* --------------------------------------------------------------------------
+   9. Work Process
+-------------------------------------------------------------------------- */
+
+.syw-work-process-section {
+    padding: 70px 0 80px;
+    background-color: var(--white);
+    min-width: 320px;
+}
+
 .syw-process-container {
     max-width: 1200px;
-    margin: 40px auto 0;
-    padding: 0 20px;
+    margin: 55px auto 0;
+    padding: 0 24px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 30px;
 }
+
 .syw-process-card {
-    background: var(--syw-white);
-    border: 1px solid var(--syw-border-color);
-    border-radius: 8px;
-    padding: 30px;
-    text-align: center;
-    position: relative;
-    transition: box-shadow 0.3s ease;
+    background-color: var(--white);
+    border: 1px solid #e2e8f0;
+    border-radius: 18px;
+    overflow: hidden;
+    text-align: left;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
+    transition: 0.3s ease;
+    animation: sywFadeUp 0.8s ease both;
 }
+
 .syw-process-card:hover {
-    box-shadow: 0px 5px 20px rgba(0,0,0,0.1);
+    transform: translateY(-8px);
+    box-shadow: 0 14px 40px rgba(0, 0, 0, 0.09);
 }
+
+.syw-process-card:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.syw-process-card:nth-child(2) {
+    animation-delay: 0.25s;
+}
+
+.syw-process-card:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+.syw-process-image,
+.syw-step-badge,
+.syw-process-title,
+.syw-process-desc,
+.syw-process-list {
+    transition: transform 0.3s ease;
+}
+
+.syw-process-card:hover .syw-process-image,
+.syw-process-card:hover .syw-process-title,
+.syw-process-card:hover .syw-process-desc,
+.syw-process-card:hover .syw-process-list {
+    transform: translateY(-7px);
+}
+
 .syw-process-image {
-    margin-bottom: 25px;
+    width: 100%;
+    height: 260px;
+    overflow: hidden;
 }
+
 .syw-process-image img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 6px;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.4s ease;
 }
+
+.syw-process-card:hover .syw-process-image img {
+    transform: scale(1.05);
+}
+
 .syw-step-badge {
-    width: 40px;
-    height: 40px;
-    background: var(--syw-primary);
-    color: var(--syw-white);
+    width: 64px;
+    height: 64px;
+    background-color: var(--secondary-color);
+    color: var(--white);
+    border: 4px solid var(--white);
     border-radius: 50%;
+    margin: -34px 0 18px 30px;
     display: flex;
     align-items: center;
     justify-content: center;
+    font-size: 24px;
     font-weight: 700;
-    margin: -45px auto 20px; /* 이미지 아래 대롱대롱 걸치게 배치 */
     position: relative;
     z-index: 2;
-    border: 3px solid var(--syw-white);
 }
+
+.syw-process-card:hover .syw-step-badge {
+    transform: translateY(-7px) scale(1.08);
+}
+
 .syw-process-title {
-    font-size: 22px;
-    font-weight: 600;
-    color: var(--syw-dark-navy);
-    margin-bottom: 15px;
+    color: var(--primary-color);
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.25;
+    margin: 0 30px 16px;
 }
+
 .syw-process-desc {
-    font-size: 14px;
-    color: var(--syw-text-gray);
-    line-height: 22px;
-    margin-bottom: 20px;
+    color: #666;
+    font-size: 15px;
+    line-height: 1.65;
+    margin: 0 30px 24px;
 }
+
 .syw-process-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    text-align: left;
-    display: inline-block; /* 중앙 정렬 상태에서 리스트 정렬 유지 */
+    margin: 0 30px 34px;
 }
+
 .syw-process-list li {
-    font-size: 14px;
-    color: var(--syw-text-gray);
-    margin-bottom: 10px;
+    color: #666;
+    font-size: 15px;
+    line-height: 1.5;
+    margin-bottom: 14px;
+    padding-left: 32px;
     position: relative;
-    padding-left: 25px;
 }
-/* 체크 아이콘을 CSS 가상요소로 구현 */
+
 .syw-process-list li::before {
     content: "✓";
     position: absolute;
     left: 0;
-    color: var(--syw-primary);
-    font-weight: bold;
+    top: 1px;
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--secondary-color);
+    border-radius: 50%;
+    color: var(--secondary-color);
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 16px;
+    text-align: center;
 }
 
-/* ==================================================
-    예원 담당 - CTA 섹션
-    Call To Action 영역
-================================================== */
 
+/* --------------------------------------------------------------------------
+   10. CTA
+-------------------------------------------------------------------------- */
 
-/* ==================================================
-    1. CTA 전체 섹션
-================================================== */
-
-/*
-    CTA 전체 section.
-    배경 이미지 + 어두운 파란 오버레이 + 고정 배경 효과를 여기서 구현한다.
-
-    background-attachment: fixed;
-    -> 스크롤을 내려도 배경 이미지는 가만히 있고,
-       CTA section이라는 창문을 통해 배경을 보는 것 같은 효과가 생김.
-*/
 .syw-cta-section {
-    position: relative;                         /* ::before 오버레이의 기준점 */
-    padding: 110px 0;                           /* 위아래 여백. 원본처럼 두꺼운 띠 느낌 */
-    background-image: url("../img/syw-cta.png.webp"); /* CSS 파일 기준 경로: css 폴더 밖 img 폴더 */
-    background-size: cover;                     /* 이미지가 영역을 꽉 채우게 */
-    background-position: center center;         /* 이미지 중앙 기준 */
-    background-repeat: no-repeat;               /* 이미지 반복 금지 */
-    background-attachment: fixed;               /* 핵심: 배경 고정 효과 */
-    overflow: hidden;                           /* 오버레이나 애니메이션이 밖으로 튀는 것 방지 */
+    position: relative;
+    padding: 110px 0;
+    background-image: url("../img/syw-cta.png.webp");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    min-width: 320px;
+    overflow: hidden;
 }
 
-/*
-    배경 이미지 위에 덮는 어두운 파란 막.
-    원본 Arsha CTA는 사진이 그냥 보이는 게 아니라,
-    남색/파란색 필터가 씌워진 것처럼 보임.
-*/
 .syw-cta-section::before {
     content: "";
     position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;                                /* 섹션 전체 덮기 */
-    height: 100%;
-    background: rgba(40, 58, 90, 0.78);         /* Arsha 느낌의 어두운 남색 반투명 */
-    z-index: 1;                                 /* 배경보다 위, 내용보다 아래 */
+    inset: 0;
+    background-color: rgba(40, 58, 90, 0.78);
+    z-index: 1;
 }
 
-
-/* ==================================================
-    2. CTA 내부 컨테이너
-================================================== */
-
-/*
-    CTA 안쪽 내용 전체 박스.
-    데스크톱에서는 왼쪽 텍스트 / 오른쪽 버튼 구조.
-*/
-.syw-cta-section .syw-cta-container {
-    position: relative;                         /* z-index 적용을 위해 필요 */
-    z-index: 2;                                 /* 오버레이보다 위로 올림 */
-    width: 100%;
-    max-width: 1140px;                          /* 원본 Arsha 중앙 컨텐츠 폭 */
-    margin: 0 auto;                             /* 가운데 정렬 */
-    padding: 0 12px;                            /* 작은 화면에서 좌우 여백 */
-    display: flex;                              /* 텍스트와 버튼을 가로 배치 */
-    align-items: center;                        /* 세로 중앙 정렬 */
-    justify-content: space-between;             /* 텍스트 왼쪽, 버튼 오른쪽 */
-    gap: 40px;                                  /* 텍스트와 버튼 사이 간격 */
+.syw-cta-container {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    position: relative;
+    z-index: 2;
 }
 
-
-/* ==================================================
-    3. CTA 왼쪽 텍스트 영역
-================================================== */
-
-/*
-    텍스트 묶음.
-    버튼 영역을 제외하고 남는 공간을 차지하게 함.
-*/
-.syw-cta-section .syw-cta-text-wrap {
+.syw-cta-text-wrap {
     flex: 1;
 }
 
-/*
-    CTA 제목.
-    원본처럼 흰색, 굵게, 너무 크지 않게.
-*/
-.syw-cta-section .syw-cta-title {
-    color: #ffffff;
+.syw-cta-title {
+    color: var(--white);
     font-size: 28px;
     font-weight: 700;
     margin-bottom: 12px;
 }
 
-/*
-    CTA 설명 문장.
-    흰색이지만 너무 강하지 않게 line-height를 줘서 읽기 좋게 만듦.
-*/
-.syw-cta-section .syw-cta-desc {
-    color: #ffffff;
+.syw-cta-desc {
+    color: var(--white);
     font-size: 16px;
     line-height: 1.6;
-    margin: 0;
 }
 
-
-/* ==================================================
-    4. CTA 오른쪽 버튼 영역
-================================================== */
-
-/*
-    버튼을 감싸는 영역.
-    데스크톱에서는 오른쪽에 고정 폭처럼 보이게 함.
-*/
-.syw-cta-section .syw-cta-btn-wrap {
-    flex: 0 0 260px;                            /* 버튼 영역 너비 */
+.syw-cta-btn-wrap {
+    flex: 0 0 260px;
     text-align: center;
 }
 
-/*
-    CTA 버튼 기본 상태.
-    원본처럼 투명 배경 + 흰색 테두리 + 둥근 알약 버튼.
-*/
-.syw-cta-section .syw-btn-cta {
-    display: inline-block;
-    color: #ffffff;
+.syw-btn-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    border: 2px solid var(--white);
+    border-radius: 50px;
+    padding: 17px 42px;
     font-size: 16px;
     font-weight: 700;
     letter-spacing: 0.5px;
-    padding: 14px 42px;
-    border: 2px solid #ffffff;
-    border-radius: 50px;
-    text-decoration: none;
-    background: transparent;
-    transition: all 0.3s ease;                  /* hover 변화 부드럽게 */
+    background-color: transparent;
+    transition: 0.3s ease;
 }
 
-/*
-    버튼 hover 상태.
-    네가 말한 것처럼 커서를 올리면 파란색 버튼으로 바뀜.
-*/
-.syw-cta-section .syw-btn-cta:hover {
-    background: #47b2e4;
-    border-color: #47b2e4;
-    color: #ffffff;
-    transform: translateY(-3px);                /* 살짝 위로 올라가는 효과 */
-    box-shadow: 0 8px 20px rgba(71, 178, 228, 0.35);
-}
-
-/*
-    버튼 클릭 순간.
-    누르는 느낌을 주기 위해 hover보다 조금 내려오게 함.
-*/
-.syw-cta-section .syw-btn-cta:active {
-    transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(71, 178, 228, 0.28);
+.syw-btn-cta:hover {
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+    transform: translateY(-3px);
 }
 
 
-/* ==================================================
-    5. CTA 등장 애니메이션
-================================================== */
+/* --------------------------------------------------------------------------
+   11. Contact
+-------------------------------------------------------------------------- */
 
-/*
-    CTA 내용이 아래에서 위로 살짝 올라오며 나타나는 효과.
-    JavaScript 없이 CSS만 사용.
-*/
-@keyframes sywCtaFadeUp {
-    0% {
-        opacity: 0;
-        transform: translateY(24px);
-    }
-
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
+.syw-contact-section {
+    padding: 60px 0 80px;
+    background-color: var(--white);
+    overflow: hidden;
 }
 
-/*
-    텍스트와 버튼에 애니메이션 적용.
-*/
-.syw-cta-section .syw-cta-text-wrap,
-.syw-cta-section .syw-cta-btn-wrap {
-    animation: sywCtaFadeUp 0.8s ease both;
+.syw-contact-container {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 12px;
+    display: flex;
+    gap: 24px;
+    align-items: stretch;
 }
 
-/*
-    버튼은 텍스트보다 살짝 늦게 나타나게 함.
-*/
-.syw-cta-section .syw-cta-btn-wrap {
+.syw-contact-info-wrap {
+    flex: 0 0 calc(40% - 12px);
+}
+
+.syw-contact-form-wrap {
+    flex: 0 0 calc(60% - 12px);
+}
+
+.syw-info-card,
+.syw-contact-form {
+    height: 100%;
+    background-color: var(--white);
+    padding: 30px;
+    border-top: 3px solid var(--secondary-color);
+    border-bottom: 3px solid var(--secondary-color);
+    box-shadow: 0 0 24px rgba(0, 0, 0, 0.08);
+    transition: 0.35s ease;
+    animation: sywFadeUp 0.8s ease both;
+}
+
+.syw-contact-form {
     animation-delay: 0.12s;
 }
 
-
-/* ==================================================
-    6. 태블릿 반응형
-    991px 이하에서는 원본처럼 텍스트와 버튼을 가운데 정렬
-================================================== */
-
-@media screen and (max-width: 991px) {
-    .syw-cta-section {
-        padding: 90px 0;
-        background-position: center center;
-    }
-
-    .syw-cta-section .syw-cta-container {
-        max-width: 720px;
-        flex-direction: column;                 /* 가로 배치 -> 세로 배치 */
-        text-align: center;                     /* 텍스트 가운데 정렬 */
-        gap: 28px;
-    }
-
-    .syw-cta-section .syw-cta-btn-wrap {
-        flex: 0 0 auto;
-        width: 100%;
-    }
-
-    .syw-cta-section .syw-cta-title {
-        font-size: 28px;
-    }
-
-    .syw-cta-section .syw-cta-desc {
-        font-size: 16px;
-    }
-}
-
-
-/* ==================================================
-    7. 모바일 반응형
-    767px 이하에서는 더 좁은 화면에 맞게 여백과 글자 크기 조정
-================================================== */
-
-@media screen and (max-width: 767px) {
-    .syw-cta-section {
-        padding: 80px 0;
-        /*
-            모바일 브라우저에서는 background-attachment: fixed가
-            버벅이거나 안 먹는 경우가 많음.
-            그래서 모바일에서는 scroll로 바꿔서 깨짐 방지.
-        */
-        background-attachment: scroll;
-    }
-
-    .syw-cta-section::before {
-        background: rgba(40, 58, 90, 0.76);
-    }
-
-    .syw-cta-section .syw-cta-container {
-        max-width: 540px;
-        padding: 0 20px;
-    }
-
-    .syw-cta-section .syw-cta-title {
-        font-size: 26px;
-        margin-bottom: 12px;
-    }
-
-    .syw-cta-section .syw-cta-desc {
-        font-size: 15px;
-        line-height: 1.7;
-    }
-
-    .syw-cta-section .syw-btn-cta {
-        padding: 13px 38px;
-        font-size: 15px;
-    }
-}
-
-
-/* ==================================================
-    8. 작은 모바일 반응형
-    575px 이하에서는 캡처처럼 CTA가 좁은 화면에서도 꽉 차게 보이도록 조정
-================================================== */
-
-@media screen and (max-width: 575px) {
-    .syw-cta-section {
-        padding: 75px 0;
-        background-position: center center;
-    }
-
-    .syw-cta-section .syw-cta-container {
-        padding: 0 18px;
-        gap: 24px;
-    }
-
-    .syw-cta-section .syw-cta-title {
-        font-size: 25px;
-    }
-
-    .syw-cta-section .syw-cta-desc {
-        font-size: 15px;
-    }
-
-    .syw-cta-section .syw-btn-cta {
-        width: auto;
-        min-width: 190px;
-        padding: 13px 30px;
-    }
-}
-
-
-/* ==================================================
-    9. 아주 작은 화면 대응
-================================================== */
-
-@media screen and (max-width: 380px) {
-    .syw-cta-section {
-        padding: 70px 0;
-    }
-
-    .syw-cta-section .syw-cta-title {
-        font-size: 23px;
-    }
-
-    .syw-cta-section .syw-cta-desc {
-        font-size: 14px;
-    }
-
-    .syw-cta-section .syw-btn-cta {
-        min-width: 170px;
-        padding: 12px 24px;
-        font-size: 14px;
-    }
-}
-
-/* ==================================================
-    예원 담당 - Contact 섹션
-    원본 Arsha Contact 영역 스타일 구현
-================================================== */
-
-
-/* ==================================================
-    1. 예원 담당 공통 섹션 제목
-    Services, Work Process, Contact에서 같이 쓰는 제목 스타일
-================================================== */
-
-/* 
-    syw-section-title은 네 HTML에서 Services, Work Process, Contact가 같이 쓰고 있음.
-    그래서 원본 Arsha처럼 가운데 정렬된 섹션 제목으로 만든다.
-*/
-.syw-section-title {
-    text-align: center;              /* 제목과 설명을 가운데 정렬 */
-    padding-bottom: 40px;            /* 제목 아래 콘텐츠와의 간격 */
-}
-
-/* 
-    섹션 제목 h2
-    원본 Arsha의 CONTACT처럼 진한 남색, 굵은 대문자 느낌
-*/
-.syw-section-title h2 {
-    font-size: 32px;                 /* 원본과 비슷한 큰 제목 크기 */
-    font-weight: 700;                /* 굵은 제목 */
-    text-transform: uppercase;       /* Contact -> CONTACT처럼 대문자로 표시 */
-    color: #37517e;                  /* Arsha 메인 남색 */
-    margin-bottom: 20px;             /* 제목과 밑줄 사이 간격 */
-    padding-bottom: 20px;            /* 밑줄 위치 확보 */
-    position: relative;              /* ::before, ::after 밑줄 위치 기준 */
-}
-
-/* 
-    제목 아래 회색 긴 선
-    원본에서 CONTACT 아래에 얇은 회색 선이 먼저 깔림
-*/
-.syw-section-title h2::before {
-    content: "";
-    position: absolute;
-    display: block;
-    width: 120px;                    /* 회색 선 길이 */
-    height: 1px;                     /* 얇은 선 */
-    background: #dddddd;             /* 연한 회색 */
-    bottom: 1px;
-    left: 50%;
-    transform: translateX(-50%);     /* 가운데 정렬 */
-}
-
-/* 
-    제목 아래 파란 짧은 선
-    회색 선 위에 파란 선을 짧게 올려서 Arsha 느낌 구현
-*/
-.syw-section-title h2::after {
-    content: "";
-    position: absolute;
-    display: block;
-    width: 50px;                     /* 파란 선 길이 */
-    height: 3px;                     /* 회색 선보다 두껍게 */
-    background: #47b2e4;             /* Arsha 하늘색 포인트 */
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);     /* 가운데 정렬 */
-}
-
-/* 
-    제목 아래 설명 문장
-*/
-.syw-section-title p {
-    color: #444444;
-    font-size: 16px;
-    line-height: 1.6;
-    margin: 0 auto;
-    max-width: 760px;                /* 너무 길게 퍼지지 않게 제한 */
-}
-
-
-/* ==================================================
-    2. Contact 전체 섹션
-================================================== */
-
-/*
-    Contact 전체 영역.
-    위아래 여백을 넉넉히 줘서 원본처럼 흰 배경에 깔끔하게 보이게 함.
-*/
-.syw-contact-section {
-    padding: 60px 0 80px;            /* 위 60px, 아래 80px */
-    background: #ffffff;
-    overflow: hidden;                /* 애니메이션 시 밖으로 삐져나가는 것 방지 */
-}
-
-/*
-    Contact 안쪽 전체 컨테이너.
-    데스크톱에서는 왼쪽 정보 카드 + 오른쪽 폼 카드가 가로로 배치됨.
-*/
-.syw-contact-container {
-    width: 100%;
-    max-width: 1140px;               /* 원본 Arsha의 중앙 콘텐츠 폭과 비슷하게 */
-    margin: 0 auto;                  /* 화면 가운데 정렬 */
-    padding: 0 12px;                 /* 작은 화면에서 좌우 여백 확보 */
-    display: flex;                   /* 자식 요소를 가로 배치 */
-    gap: 24px;                       /* 왼쪽 카드와 오른쪽 카드 사이 간격 */
-    align-items: stretch;            /* 두 카드 높이 자연스럽게 맞춤 */
-}
-
-
-/* ==================================================
-    3. 왼쪽 Contact 정보 카드
-================================================== */
-
-/*
-    왼쪽 정보 영역.
-    데스크톱 기준 약 40% 너비.
-*/
-.syw-contact-info-wrap {
-    flex: 0 0 calc(40% - 12px);      /* 왼쪽 영역 너비 */
-}
-
-/*
-    실제 정보 카드 박스.
-    원본처럼 위아래에 파란 라인이 있고, 그림자가 있는 흰 카드.
-*/
-.syw-info-card {
-    width: 100%;
-    height: 100%;
-    background: #ffffff;
-    padding: 30px;
-    border-top: 3px solid #47b2e4;    /* 위쪽 파란 선 */
-    border-bottom: 3px solid #47b2e4; /* 아래쪽 파란 선 */
-    box-shadow: 0 0 24px rgba(0, 0, 0, 0.08);
-    transition: transform 0.35s ease, box-shadow 0.35s ease;
-}
-
-/*
-    카드 전체에 hover했을 때 살짝 떠오르는 효과.
-    원본보다 과하지 않게 자연스럽게만 줌.
-*/
-.syw-info-card:hover {
+.syw-info-card:hover,
+.syw-contact-form:hover {
     transform: translateY(-4px);
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.11);
 }
 
-/*
-    Address, Call Us, Email Us 각각 한 줄.
-    아이콘 원 + 텍스트가 가로로 나란히 배치됨.
-*/
 .syw-info-item {
     display: flex;
     align-items: flex-start;
@@ -1076,74 +537,47 @@
     margin-bottom: 32px;
 }
 
-/*
-    아이콘을 감싸는 동그란 원.
-    원본에서 연한 하늘색 배경 + 파란 아이콘 느낌.
-*/
 .syw-icon-circle {
     width: 44px;
     height: 44px;
-    min-width: 44px;                 /* flex에서 찌그러지지 않게 고정 */
+    min-width: 44px;
     border-radius: 50%;
-    background: #eef9fd;
+    background-color: #eef9fd;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: background 0.3s ease, transform 0.3s ease;
+    transition: 0.3s ease;
 }
 
-/*
-    아이콘 이미지 크기.
-    네가 png 아이콘을 쓰고 있으니까 img 기준으로 맞춤.
-*/
 .syw-icon-circle img {
     width: 22px;
     height: 22px;
     object-fit: contain;
 }
 
-/*
-    정보 아이템에 마우스를 올리면 아이콘 원이 파랗게 변함.
-    원본 Arsha에서도 아이콘 hover 느낌이 있음.
-*/
 .syw-info-item:hover .syw-icon-circle {
-    background: #47b2e4;
+    background-color: var(--secondary-color);
     transform: scale(1.08);
 }
 
-/*
-    아이콘이 흰색 이미지가 아니라 파란 이미지일 경우,
-    hover 때 잘 안 보일 수 있어서 밝게 보이도록 필터 적용.
-    만약 hover 때 아이콘 색이 이상하면 이 부분만 지워도 됨.
-*/
 .syw-info-item:hover .syw-icon-circle img {
     filter: brightness(0) invert(1);
 }
 
-/*
-    Address, Call Us, Email Us 제목
-*/
 .syw-info-item h4 {
+    color: var(--primary-color);
     font-size: 20px;
     font-weight: 700;
-    color: #37517e;
     margin-bottom: 6px;
 }
 
-/*
-    정보 설명 텍스트
-*/
 .syw-info-item p {
+    color: var(--text-color);
     font-size: 14px;
-    color: #444444;
     line-height: 1.5;
     margin: 0;
 }
 
-/*
-    구글맵 iframe.
-    원본처럼 왼쪽 카드 아래에 넓게 들어감.
-*/
 .syw-contact-map {
     width: 100%;
     height: 290px;
@@ -1152,225 +586,151 @@
     margin-top: 8px;
 }
 
-
-/* ==================================================
-    4. 오른쪽 Contact Form 카드
-================================================== */
-
-/*
-    오른쪽 form 영역.
-    데스크톱 기준 약 60% 너비.
-*/
-.syw-contact-form-wrap {
-    flex: 0 0 calc(60% - 12px);
-}
-
-/*
-    실제 form 카드.
-    왼쪽 카드와 같은 그림자, 같은 위아래 파란 선 적용.
-*/
-.syw-contact-form {
-    width: 100%;
-    height: 100%;
-    background: #ffffff;
-    padding: 30px;
-    border-top: 3px solid #47b2e4;
-    border-bottom: 3px solid #47b2e4;
-    box-shadow: 0 0 24px rgba(0, 0, 0, 0.08);
-    transition: transform 0.35s ease, box-shadow 0.35s ease;
-}
-
-/*
-    form 카드 hover 효과.
-*/
-.syw-contact-form:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.11);
-}
-
-/*
-    이름 / 이메일을 한 줄에 배치하는 행.
-    데스크톱에서는 2칸, 모바일에서는 아래 media query에서 1칸으로 바뀜.
-*/
 .syw-form-row {
     display: flex;
     gap: 24px;
 }
 
-/*
-    각각의 label + input 묶음.
-*/
 .syw-form-group {
     width: 100%;
     margin-bottom: 24px;
 }
 
-/*
-    이름, 이메일은 절반 너비.
-*/
-.syw-form-group.syw-half {
+.syw-half {
     width: 50%;
 }
 
-/*
-    입력창 위 label.
-*/
 .syw-form-group label {
     display: block;
+    color: var(--text-color);
     font-size: 16px;
-    color: #444444;
     margin-bottom: 10px;
 }
 
-/*
-    input과 textarea 공통 스타일.
-    원본처럼 네모난 흰 입력창 + 얇은 회색 테두리.
-*/
 .syw-form-group input,
 .syw-form-group textarea {
     width: 100%;
-    border: 1px solid #dddddd;
+    border: 1px solid #ddd;
     outline: none;
-    color: #444444;
+    color: var(--text-color);
     font-size: 15px;
     font-family: inherit;
     padding: 10px 12px;
-    background: #ffffff;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    background-color: var(--white);
+    transition: 0.3s ease;
 }
 
-/*
-    input 높이.
-*/
 .syw-form-group input {
     height: 44px;
 }
 
-/*
-    textarea는 사용자가 크기 조절 가능하면 레이아웃이 망가질 수 있어서 세로만 가능하게 함.
-*/
 .syw-form-group textarea {
     min-height: 245px;
-    resize: vertical;
     line-height: 1.5;
+    resize: vertical;
 }
 
-/*
-    입력창 클릭했을 때 focus 효과.
-    테두리가 Arsha 포인트 하늘색으로 바뀜.
-*/
 .syw-form-group input:focus,
 .syw-form-group textarea:focus {
-    border-color: #47b2e4;
+    border-color: var(--secondary-color);
     box-shadow: 0 0 0 3px rgba(71, 178, 228, 0.12);
 }
 
-/*
-    Send Message 버튼을 가운데 배치.
-*/
 .syw-form-submit {
     text-align: center;
     margin-top: 6px;
 }
 
-/*
-    전송 버튼.
-    원본처럼 둥근 알약 모양의 하늘색 버튼.
-*/
 .syw-btn-submit {
-    border: 0;
-    outline: none;
-    background: #47b2e4;
-    color: #ffffff;
+    background-color: var(--secondary-color);
+    color: var(--white);
     padding: 13px 34px;
     border-radius: 50px;
     font-size: 16px;
     font-family: inherit;
     cursor: pointer;
-    transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    transition: 0.3s ease;
 }
 
-/*
-    버튼 hover 효과.
-    살짝 더 밝게 + 위로 올라가는 느낌.
-*/
 .syw-btn-submit:hover {
-    background: #5cc0ee;
+    background-color: #5cc0ee;
     transform: translateY(-3px);
-    box-shadow: 0 8px 18px rgba(71, 178, 228, 0.35);
-}
-
-/*
-    버튼을 누르는 순간 살짝 내려가게 해서 클릭감 부여.
-*/
-.syw-btn-submit:active {
-    transform: translateY(-1px);
-    box-shadow: 0 4px 10px rgba(71, 178, 228, 0.28);
 }
 
 
-/* ==================================================
-    5. Contact 등장 애니메이션
-================================================== */
+/* --------------------------------------------------------------------------
+   Animation
+-------------------------------------------------------------------------- */
 
-/*
-    카드가 아래에서 위로 살짝 올라오며 나타나는 애니메이션.
-    JavaScript 없이 CSS만으로 구현.
-*/
-@keyframes sywContactFadeUp {
-    0% {
+@keyframes sywSkillBarGrow {
+    from {
+        transform: scaleX(0);
+    }
+
+    to {
+        transform: scaleX(1);
+    }
+}
+
+@keyframes sywFadeUp {
+    from {
         opacity: 0;
         transform: translateY(24px);
     }
 
-    100% {
+    to {
         opacity: 1;
         transform: translateY(0);
     }
 }
 
-/*
-    왼쪽 카드와 오른쪽 카드에 등장 애니메이션 적용.
-*/
-.syw-info-card,
-.syw-contact-form {
-    animation: sywContactFadeUp 0.8s ease both;
-}
 
-/*
-    오른쪽 form은 왼쪽보다 살짝 늦게 나타나게 함.
-*/
-.syw-contact-form {
-    animation-delay: 0.12s;
-}
+/* --------------------------------------------------------------------------
+   Responsive
+-------------------------------------------------------------------------- */
 
-
-/* ==================================================
-    6. 태블릿 반응형
-    화면이 991px 이하일 때
-    원본처럼 왼쪽 카드와 오른쪽 폼이 세로로 쌓임
-================================================== */
-
-@media screen and (max-width: 991px) {
-    .syw-contact-section {
-        padding: 55px 0 70px;
-    }
-
+@media (max-width: 991px) {
+    .syw-skills-container,
+    .syw-cta-container,
     .syw-contact-container {
-        max-width: 720px;            /* 태블릿 화면에서 너무 넓지 않게 */
-        flex-direction: column;      /* 가로 배치 -> 세로 배치 */
-        gap: 24px;
+        max-width: 720px;
+        flex-direction: column;
     }
 
+    .syw-skills-content-left,
+    .syw-skills-content-right,
     .syw-contact-info-wrap,
     .syw-contact-form-wrap {
-        flex: 0 0 100%;
         width: 100%;
+        flex: 0 0 100%;
     }
 
-    .syw-info-card,
-    .syw-contact-form {
-        height: auto;
+    .syw-services-container {
+        max-width: 900px;
+        padding: 0 24px;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .syw-process-container {
+        max-width: 760px;
+        grid-template-columns: 1fr;
+    }
+
+    .syw-process-image {
+        height: 320px;
+    }
+
+    .syw-cta-section {
+        padding: 90px 0;
+    }
+
+    .syw-cta-container {
+        text-align: center;
+    }
+
+    .syw-cta-btn-wrap {
+        width: 100%;
+        flex: 0 0 auto;
     }
 
     .syw-contact-map {
@@ -1378,14 +738,7 @@
     }
 }
 
-
-/* ==================================================
-    7. 모바일 반응형
-    화면이 767px 이하일 때
-    이름 / 이메일도 한 줄씩 세로로 내려감
-================================================== */
-
-@media screen and (max-width: 767px) {
+@media (max-width: 767px) {
     .syw-section-title {
         padding-bottom: 32px;
     }
@@ -1399,13 +752,83 @@
         padding: 0 12px;
     }
 
+    .syw-skills-section,
+    .syw-services-section,
+    .syw-work-process-section,
     .syw-contact-section {
-        padding: 50px 0 60px;
+        padding: 55px 0 65px;
     }
 
+    .syw-skills-container,
+    .syw-services-container,
+    .syw-process-container,
+    .syw-cta-container,
     .syw-contact-container {
         max-width: 540px;
-        padding: 0 16px;
+        padding: 0 20px;
+    }
+
+    .syw-skills-title {
+        font-size: 28px;
+    }
+
+    .syw-skills-desc {
+        font-size: 15px;
+    }
+
+    .syw-progress-bar-wrap {
+        height: 9px;
+    }
+
+    .syw-skill-name,
+    .syw-skill-percent {
+        font-size: 12px;
+    }
+
+    .syw-services-container {
+        grid-template-columns: 1fr;
+    }
+
+    .syw-service-item {
+        min-height: 260px;
+        padding: 48px 40px;
+    }
+
+    .syw-process-image {
+        height: 250px;
+    }
+
+    .syw-step-badge {
+        width: 60px;
+        height: 60px;
+        font-size: 22px;
+        margin: -32px 0 18px 26px;
+    }
+
+    .syw-process-title,
+    .syw-process-desc,
+    .syw-process-list {
+        margin-left: 26px;
+        margin-right: 26px;
+    }
+
+    .syw-cta-section {
+        padding: 80px 0;
+        background-attachment: scroll;
+    }
+
+    .syw-cta-title {
+        font-size: 26px;
+    }
+
+    .syw-cta-desc {
+        font-size: 15px;
+        line-height: 1.7;
+    }
+
+    .syw-btn-cta {
+        padding: 16px 38px;
+        font-size: 15px;
     }
 
     .syw-info-card,
@@ -1414,162 +837,15 @@
     }
 
     .syw-form-row {
-        flex-direction: column;      /* 이름, 이메일 세로 배치 */
+        flex-direction: column;
         gap: 0;
     }
 
-    .syw-form-group.syw-half {
+    .syw-half {
         width: 100%;
     }
 
     .syw-contact-map {
         height: 280px;
-    }
-}
-
-
-/* ==================================================
-    8. 작은 모바일 반응형
-    화면이 575px 이하일 때
-    첨부한 모바일 캡처처럼 좁은 화면에서 여백을 줄임
-================================================== */
-
-@media screen and (max-width: 575px) {
-    .syw-contact-section {
-        padding: 45px 0 55px;
-    }
-
-    .syw-contact-container {
-        padding: 0 12px;
-    }
-
-    .syw-info-card,
-    .syw-contact-form {
-        padding: 25px 18px;
-    }
-
-    .syw-info-item {
-        gap: 14px;
-        margin-bottom: 28px;
-    }
-
-    .syw-icon-circle {
-        width: 42px;
-        height: 42px;
-        min-width: 42px;
-    }
-
-    .syw-icon-circle img {
-        width: 20px;
-        height: 20px;
-    }
-
-    .syw-info-item h4 {
-        font-size: 18px;
-    }
-
-    .syw-info-item p {
-        font-size: 13px;
-    }
-
-    .syw-form-group label {
-        font-size: 15px;
-    }
-
-    .syw-form-group input {
-        height: 42px;
-    }
-
-    .syw-form-group textarea {
-        min-height: 210px;
-    }
-
-    .syw-btn-submit {
-        padding: 12px 30px;
-        font-size: 15px;
-    }
-
-    .syw-contact-map {
-        height: 240px;
-    }
-}
-
-
-/* ==================================================
-    9. 아주 좁은 화면 대응
-    360px 근처 모바일에서 깨짐 방지
-================================================== */
-
-@media screen and (max-width: 380px) {
-    .syw-info-card,
-    .syw-contact-form {
-        padding: 22px 16px;
-    }
-
-    .syw-info-item {
-        align-items: flex-start;
-    }
-
-    .syw-section-title h2 {
-        font-size: 26px;
-    }
-
-    .syw-contact-map {
-        height: 220px;
-    }
-}
-
-/* ==========================================================================
-   [Responsive] 반응형 미디어 쿼리 (반응형 구현 목표 달성용)
-   ========================================================================== */
-
-/* 1) 데스크탑 하위 및 태블릿 화면 가로 (max-width: 1024px) */
-@media (max-width: 1024px) {
-    .syw-services-container {
-        grid-template-columns: repeat(2, 1fr); /* 4열 -> 2열 구성 */
-    }
-    .syw-process-container {
-        grid-template-columns: repeat(2, 1fr); /* 3열 -> 2열 구성 */
-    }
-}
-
-/* 2) 일반 태블릿 세로 및 대형 모바일 (max-width: 768px) */
-@media (max-width: 768px) {
-    .syw-skills-container {
-        flex-direction: column; /* 가로 배열에서 세로 배열로 복귀 */
-    }
-    .syw-cta-container {
-        flex-direction: column;
-        text-align: center;
-    }
-    .syw-cta-btn-wrap {
-        text-align: center;
-    }
-    .syw-contact-container {
-        flex-direction: column;
-    }
-    .syw-form-row {
-        flex-direction: column; /* 이름과 이메일 창이 위아래로 배치 */
-        gap: 0;
-    }
-}
-
-/* 3) 소형 스마트폰 화면 (max-width: 576px) */
-@media (max-width: 576px) {
-    .syw-section-title h2 {
-        font-size: 26px;
-    }
-    .syw-services-container {
-        grid-template-columns: 1fr; /* 무조건 1열로 꽉 차게 변경 */
-    }
-    .syw-process-container {
-        grid-template-columns: 1fr; /* 무조건 1열로 꽉 차게 변경 */
-    }
-    .syw-cta-title {
-        font-size: 22px;
-    }
-    .syw-btn-cta {
-        padding: 10px 30px;
-        font-size: 14px;
     }
 }
