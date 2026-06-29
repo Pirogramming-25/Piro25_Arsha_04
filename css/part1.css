@@ -43,7 +43,7 @@
 .kyk_btn-device-view:hover {
     color: var(--white);
 }
-.kyk_brand-text {
+.kyk_btn-device-view:first-of-type {
     font-weight: 700;
     color: var(--white);
     font-size: 15px;
@@ -107,6 +107,23 @@
 .kyk_btn-preview-download svg {
     width: 16px;
     height: 16px;
+}
+
+/* 1. 화면 너비 1024px 이하 */
+@media (max-width: 1024px) {
+    .kyk_btn-device-view {
+        display: none;
+    }
+}
+
+/* 2. 화면 너비 768px 이하 */
+@media (max-width: 768px) {
+    .kyk_img-preview-logo {
+        display: none;
+    }
+    .kyk_preview-left-block {
+        display: none;
+    }
 }
 
 /* ---------------------------------------------------------------- */
@@ -483,6 +500,7 @@
     animation: kyk_animated-hero 3.5s ease-in-out infinite alternate;
 }
 
+
 /* 위아래로 부드럽게 둥둥 뜨는 핵심 프레임 설정 */
 @keyframes kyk_animated-hero {
     0% {
@@ -493,6 +511,77 @@
     }
 }
 
+/* =========================================
+   [홈 화면 요소 애니메이션 적용]
+   ========================================= */
+
+/* (1) 제목 (h1) - 0.2초 뒤 등장 */
+.kyk_hero-main-title {
+    opacity: 0;
+    animation: kyk_zoomIn 1s ease-in-out forwards;
+    animation-delay: 0.1s;
+}
+
+/* (2) 부제목 (h2) - 0.4초 뒤 등장 */
+.kyk_hero-sub-title {
+    opacity: 0;
+    animation: kyk_zoomIn 1s ease-in-out forwards;
+    animation-delay: 0.2s;
+}
+
+/* (3) 버튼들 - 0.6초 뒤 등장 */
+.kyk_hero-buttons-group {
+    opacity: 0;
+    animation: kyk_zoomIn 1s ease-in-out forwards;
+    animation-delay: 0.3s;
+}
+
+/* (4) 오른쪽 이미지 컨테이너 - 0.8초 뒤 등장 */
+.kyk_hero-image-right {
+    opacity: 0;
+    animation: kyk_zoomIn 1s ease-in-out forwards;
+    animation-delay: 0.4s;
+}
+@keyframes kyk_zoomIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* --- 반응형 (모바일) --- */
+@media (max-width: 991px) {
+    .kyk_hero-section {
+        height: auto;
+        padding: 100px 30px 60px 0;
+        text-align: left;
+    }
+    
+    .kyk_hero-row {
+        flex-direction: column-reverse; /* 이미지가 위로 가도록 순서 변경 */
+        gap: 30px;
+    }
+    
+
+    .kyk_hero-content-left, 
+    .kyk_hero-image-right{
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .kyk_hero-buttons-group {
+        justify-content: left;
+    }
+    
+    .kyk_hero-image-right {
+        width: 70%; /* 모바일에서 이미지 너무 크지 않게 */
+    }
+}
+    
 /* -----------------------------------------------*/
 
 /* ==========================================
