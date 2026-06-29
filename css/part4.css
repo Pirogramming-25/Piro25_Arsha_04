@@ -192,6 +192,27 @@
     }
 }
 
+.jhw-testimonial-item {
+    opacity: 0;
+    transform: translateY(100px) scale(0.9);
+    transition: transform 0.2s ease-out; 
+    animation: jhw-fadeInUp-2 linear both;
+    animation-timeline: view();
+    animation-range: entry 0% contain 30%; 
+}
+
+@keyframes jhw-fadeInUp-2 {
+    0% {
+        opacity: 0;
+        transform: translateY(100px) scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+
 .jhw-pricing h2,
 .jhw-divider,
 .jhw-min-title,
@@ -201,7 +222,6 @@
 .jhw-faq-item,
 .jhw-blog-title,
 .jhw-blog-post,
-.jhw-testimonial-item,
 .jhw-testimonials-slider,
 .jhw-testimonials-wrapper
 {
