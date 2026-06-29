@@ -373,6 +373,9 @@
     background-attachment: fixed;
     min-width: 320px;
     overflow: hidden;
+
+    view-timeline-name: --syw-cta-view;
+    view-timeline-axis: block;
 }
 
 .syw-cta-section::before {
@@ -404,17 +407,35 @@
     font-size: 28px;
     font-weight: 700;
     margin-bottom: 12px;
+
+    opacity: 0;
+    transform: scale(0.75);
+    animation: syw-cta-pop 1.2s ease-out both;
+    animation-timeline: --syw-cta-view;
+    animation-range: entry 15% cover 45%;
 }
 
 .syw-cta-desc {
     color: var(--white);
     font-size: 16px;
     line-height: 1.5;
+
+    opacity: 0;
+    transform: scale(0.75);
+    animation: syw-cta-pop 1.2s ease-out both;
+    animation-timeline: --syw-cta-view;
+    animation-range: entry 20% cover 50%;
 }
 
 .syw-cta-btn-wrap {
     flex: 0 0 260px;
     text-align: center;
+
+    opacity: 0;
+    transform: scale(0.75);
+    animation: syw-cta-pop 1.2s ease-out both;
+    animation-timeline: --syw-cta-view;
+    animation-range: entry 25% cover 55%;
 }
 
 .syw-btn-cta {
@@ -436,7 +457,6 @@
     background-color: var(--secondary-color);
     border-color: var(--secondary-color);
 }
-
 
 /* --------------------------------------------------------------------------
    11. Contact
@@ -605,7 +625,6 @@
     background-color: #5cc0ee;
 }
 
-
 /* --------------------------------------------------------------------------
    애니메이션
 -------------------------------------------------------------------------- */
@@ -614,24 +633,54 @@
 .syw-skills-container,
 .syw-services-container,
 .syw-process-container,
-.syw-cta-container,
 .syw-contact-container {
-    opacity: 0;
-    transform: translateY(100px) scale(0.96);
     animation: syw-scroll-fade-up 1.4s ease-out both;
     animation-timeline: view();
     animation-range: entry 0% cover 42%;
 }
 
+.syw-cta-title,
+.syw-cta-desc,
+.syw-cta-btn-wrap {
+    opacity: 0;
+    transform: scale(0.82);
+    transform-origin: center center;
+    animation: syw-cta-pop 1.2s ease-out both;
+    animation-timeline: --syw-cta-view;
+}
+
+.syw-cta-title {
+    animation-range: entry 30% cover 48%;
+}
+
+.syw-cta-desc {
+    animation-range: entry 34% cover 52%;
+}
+
+.syw-cta-btn-wrap {
+    animation-range: entry 38% cover 56%;
+}
 @keyframes syw-scroll-fade-up {
-    0% {
+    from {
         opacity: 0;
         transform: translateY(100px) scale(0.96);
     }
 
-    100% {
+    to {
         opacity: 1;
         transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes syw-cta-pop {
+    from {
+        opacity: 0;
+        transform: scale(0.82);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
     }
 }
 
@@ -644,6 +693,7 @@
         transform: scaleX(1);
     }
 }
+
 /* --------------------------------------------------------------------------
    반응형
 -------------------------------------------------------------------------- */
