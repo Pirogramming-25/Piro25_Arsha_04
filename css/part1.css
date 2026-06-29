@@ -806,3 +806,251 @@
         transform: translateY(0);    /* 화면에 다 들어오면 제자리에 칼같이 고정 */
     }
 }
+
+
+/* ------------------------------------------ */
+
+/* ==========================================
+   6. 자주 묻는 질문 및 일러스트 섹션 (FAQ Section)
+========================================== */
+.kyk_faq-section {
+    width: 100%;
+    padding: 80px 0;
+    background-color: #f4f6f9;
+}
+
+.kyk_faq-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+    box-sizing: border-box;
+}
+
+/* ------------------------------------------
+   [상단 타이틀 레이아웃]
+------------------------------------------ */
+.kyk_faq-title-box {
+    width: 100%;
+    max-width: 600px;
+    margin-bottom: 35px; /* 새 이미지 비율에 맞춰 여백 긴장감 조율 */
+    text-align: left;
+}
+
+.kyk_faq-title-box h2 {
+    font-size: 32px;
+    font-weight: 400;
+    color: #2c4964; /* 이미지 특유의 묵직한 다크 블루 톤 고정 */
+    line-height: 1.3;
+    margin: 0 0 15px 0;
+    letter-spacing: -0.5px;
+}
+
+.kyk_faq-title-box h2 strong {
+    font-weight: 700;
+    font-size: 32px;
+}
+
+.kyk_faq-title-box p {
+    font-size: 15px;
+    color: #777777;
+    line-height: 1.6;
+    margin: 0;
+    word-break: keep-all;
+}
+
+/* ------------------------------------------
+   [하단 콘텐츠 구역] 2단 가로 정렬 (리스트-이미지 높이 동적 연동)
+------------------------------------------ */
+.kyk_faq-content-body {
+    display: flex;
+    justify-content: space-between;
+    /* [교정] stretch로 변경하여 좌측 아코디언이 늘어날 때 우측 박스 높이도 똑같이 늘어나게 연동 */
+    align-items: stretch; 
+    gap: 50px;
+
+    position: relative;
+}
+
+/* 좌측 아코디언 블록 (60%) */
+.kyk_faq-wrapper {
+    flex: 1.5;
+    display: flex;
+    padding-right: 85px;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* ------------------------------------------
+   [우측 이미지 블록] - 높이 비례 실시간 동기화
+------------------------------------------ */
+.kyk_faq-image-zone {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    /* [핵심] 상단 정렬 및 늘어나는 높이 수용 */
+    align-items: flex-start; 
+    
+    margin-top: -125px; 
+    position: relative;
+    z-index: 2;
+    
+    /* 높이 변화를 매우 부드럽게 연결 */
+    transition: height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.kyk_img-faq-graphic {
+    /* [교정] 부모 박스의 변화된 높이를 100% 흡수 */
+    width: 100%;
+    height: 100%;
+    
+    /* 기존 max-height 제한을 유연하게 조정 (확장성을 위해) */
+    max-height: 600px; 
+    
+    /* 비율을 완벽하게 유지하며 박스 내부를 꽉 채움 */
+    object-fit: contain;
+    
+    /* 모션 최적화 */
+    transition: height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ------------------------------------------
+   [디테일 아코디언 박스 디자인]
+------------------------------------------ */
+.kyk_faq-item {
+    width: 100%;
+    background-color: var(--white);
+    border-radius: 4px;
+    padding: 22px 30px; /* 새 이미지의 슬림한 두께감 재현 */
+    box-sizing: border-box;
+    box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.03);
+}
+
+.kyk_faq-checkbox {
+    display: none;
+}
+
+.kyk_faq-header {
+    display: flex;
+    align-items: center; /* 숫자와 텍스트를 완벽한 중앙 라인으로 맞춤 */
+    gap: 15px;
+    cursor: pointer;
+    position: relative;
+    user-select: none;
+}
+
+.kyk_faq-number {
+    font-size: 16px;
+    font-weight: 600;
+    color: #47b2e4; 
+    transition: none; /* 고정 색상이므로 transition 제거 */
+}
+
+/* 닫혀있을 때: 이미지와 동일하게 묵직하고 차분한 톤 유지 */
+.kyk_faq-question {
+    font-size: 16px;
+    font-weight: 600;
+    color: #2c4964; /* 닫힘 상태: 기본 색상 */
+    margin: 0;
+    padding-right: 35px;
+}
+/* 1. 질문 텍스트 독립 호버 (닫혀 있을 때만) */
+.kyk_faq-checkbox:not(:checked) + .kyk_faq-header .kyk_faq-question:hover {
+    color: var(--secondary-color);
+}
+
+/* 2. 화살표 독립 호버 (닫혀 있을 때만) */
+.kyk_faq-checkbox:not(:checked) + .kyk_faq-header .kyk_faq-arrow-icon:hover {
+    border-color: var(--secondary-color);
+}
+
+/* 부드러운 전환 효과 */
+.kyk_faq-question {
+    transition: color 0.3s ease;
+    cursor: pointer; /* 마우스 올렸을 때 클릭 가능 표시 */
+}
+
+.kyk_faq-arrow-icon {
+    transition: border-color 0.3s ease, transform 0.3s ease;
+    cursor: pointer; /* 마우스 올렸을 때 클릭 가능 표시 */
+}
+/* [새 레퍼런스 반영] 닫혀있을 때: 정밀하게 오른쪽을 가리키는 꺾쇠(`>`) 구현 */
+.kyk_faq-arrow-icon {
+    position: absolute;
+    right: 5px;
+    top: 8px;
+    width: 8px;
+    height: 8px;
+    border-top: 1.5px solid #2c4964; /* 상단과 우측 테두리로 꺾쇠 구성 */
+    border-right: 1.5px solid #2c4964;
+    transform: translateY(-50%) rotate(45deg); /* 45도 회전 시 완벽한 '>' 모양 형성 */
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.3s ease;
+}
+
+/* 내용물 애니메이션 제어 박스 */
+.kyk_faq-body {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+}
+
+.kyk_faq-body-content {
+    padding: 18px 0 5px 0px;
+}
+
+.kyk_faq-body p {
+    font-size: 14.5px;
+    color: #444444;
+    line-height: 1.6;
+    margin: 0;
+    text-align: left;
+    word-break: keep-all;
+}
+
+/* ------------------------------------------
+   [형제 선택자 모션 연동] 체크박스 On (열림 상태)
+------------------------------------------ */
+
+/* 1. 내용물 부드럽게 노출 */
+.kyk_faq-checkbox:checked ~ .kyk_faq-body {
+    max-height: 300px;
+    opacity: 1;
+}
+
+/* 2. 열렸을 때 파란색 강조 처리 */
+.kyk_faq-checkbox:checked ~ .kyk_faq-header .kyk_faq-question,
+.kyk_faq-checkbox:checked ~ .kyk_faq-header .kyk_faq-number {
+    color: var(--secondary-color);
+}
+
+/* 3. [새 레퍼런스 반영] 열렸을 때: 화살표 각도를 아래 방향(`∨`)으로 부드럽게 회전 조율 */
+.kyk_faq-checkbox:checked ~ .kyk_faq-header .kyk_faq-arrow-icon {
+    border-color: var(--secondary-color);
+    transform: translateY(-70%) rotate(135deg); /* 135도 회전 시 부드럽게 아래 방향 완성 */
+}
+
+
+/* ------------------------------------------
+   [스크롤 트리거] 순수 CSS 개별 % 분할 모션 (동일 유지)
+------------------------------------------ */
+.kyk_faq-title-box,
+.kyk_faq-item,
+.kyk_faq-image-zone {
+    transform-origin: center center;
+    will-change: transform, opacity;
+    animation: kyk_faqScrollUp 2s ease-in-out forwards;
+    animation-timeline: view();
+}
+
+.kyk_faq-title-box { animation-range: entry 0% entry 20%; }
+.kyk_faq-wrapper > .kyk_faq-item:nth-child(1) { animation-range: entry 10% entry 35%; }
+.kyk_faq-wrapper > .kyk_faq-item:nth-child(2) { animation-range: entry 20% entry 45%; }
+.kyk_faq-wrapper > .kyk_faq-item:nth-child(3) { animation-range: entry 30% entry 55%; }
+.kyk_faq-image-zone { animation-range: entry 40% entry 70%; }
+
+@keyframes kyk_faqScrollUp {
+    0% { opacity: 0; transform: translateY(60px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+

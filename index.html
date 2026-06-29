@@ -273,64 +273,76 @@
     <!-- 6. 아코디언 섹션 (Why Us Section)-유겸담당                 -->
     <!-- 외부 라이브러리 없이 HTML5 표준 태그만 사용함       -->
     <!-- ================================================== -->
-    <section id="why-us" class="why-us-section">    
-        <!-- 섹션의 가로 폭과 중앙 정렬을 관리하는 컨테이너 -->
-        <div class="why-us-container">
+    <!-- ==========================================
+   6. 자주 묻는 질문 및 일러스트 섹션 (FAQ Section)
+========================================== -->
+    <section class="kyk_faq-section">
+        <div class="kyk_faq-container">
+            
+            <div class="kyk_faq-title-box">
+                <h2>Eum ipsam laborum deleniti <strong>velit pariatur architecto aut nihil</strong></h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit</p>
+            </div>
 
-            <!-- [좌측 블록] 텍스트와 아코디언 메뉴 영역 -->
-            <div class="why-us-content-left">
-                <!-- 메인 제목 -->
-                <h3>Eum ipsam laborum deleniti <strong>velit pariatur architecto aut nihil</strong></h3>
-                <!-- 서브 설명 문구 -->
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit.</p>
-
-                <!-- 
-                [아코디언 기능 구현]
-                <details>: 기본적으로 닫혀 있고 클릭 시 열리는 HTML5 전용 태그
-                <summary>: 클릭 가능한 제목 영역 (화살표 포함)
-                -->
+            <div class="kyk_faq-content-body">
                 
-                <!-- 아코디언 아이템 01 -->
-                <details class="accordion-item">
-                    <summary>
-                        <span class="num">01</span> Non consectetur a erat nam at lectus urna duis?
-                        <!-- 클릭 시 회전 애니메이션을 줄 화살표 아이콘 -->
-                        <img src="#" class="img-icon-chevron-down">
-                    </summary>
-                    <div class="accordion-content">
-                        <p>Feugiat pretium nibh ipsum consequat. Tempus iaculis urna id volutpat lacus laoreet non curabitur gravida.</p>
+                <div class="kyk_faq-wrapper">
+                    
+                    <div class="kyk_faq-item">
+                        <input type="checkbox" id="kyk_faq-trigger-01" class="kyk_faq-checkbox" checked>
+                        
+                        <label for="kyk_faq-trigger-01" class="kyk_faq-header">
+                            <span class="kyk_faq-number">01</span>
+                            <h3 class="kyk_faq-question">Non consectetur a erat nam at lectus urna duis?</h3>
+                            <span class="kyk_faq-arrow-icon"></span>
+                        </label>
+                        
+                        <div class="kyk_faq-body">
+                            <div class="kyk_faq-body-content">
+                                <p>Feugiat pretium nibh ipsum consequat. Tempus iaculis urna id volutpat lacus laoreet non curabitur gravida. Venenatis lectus magna fringilla urna porttitor rhoncus dolor purus non.</p>
+                            </div>
+                        </div>
                     </div>
-                </details>
 
-                <!-- 아코디언 아이템 02 -->
-                <details class="accordion-item">
-                    <summary>
-                        <span class="num">02</span> Feugiat scelerisque varius morbi enim nunc?
-                        <img src="#" class="img-icon-chevron-down">
-                    </summary>
-                    <div class="accordion-content">
-                        <p>Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi tristique. Senectus et netus et malesuada fames.</p>
+                    <div class="kyk_faq-item">
+                        <input type="checkbox" id="kyk_faq-trigger-02" class="kyk_faq-checkbox">
+                        
+                        <label for="kyk_faq-trigger-02" class="kyk_faq-header">
+                            <span class="kyk_faq-number">02</span>
+                            <h3 class="kyk_faq-question">Feugiat scelerisque varius morbi enim nunc faucibus a pellentesque?</h3>
+                            <span class="kyk_faq-arrow-icon"></span>
+                        </label>
+                        
+                        <div class="kyk_faq-body">
+                            <div class="kyk_faq-body-content">
+                                <p>Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.</p>
+                            </div>
+                        </div>
                     </div>
-                </details>
 
-                <!-- 아코디언 아이템 03 -->
-                <details class="accordion-item">
-                    <summary>
-                        <span class="num">03</span> Dolor sit amet consectetur adipiscing elit?
-                        <img src="#" class="img-icon-chevron-down">
-                    </summary>
-                    <div class="accordion-content">
-                        <p>Eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis orci. Faucibus pulvinar elementum integer enim.</p>
+                    <div class="kyk_faq-item">
+                        <input type="checkbox" id="kyk_faq-trigger-03" class="kyk_faq-checkbox">
+                        
+                        <label for="kyk_faq-trigger-03" class="kyk_faq-header">
+                            <span class="kyk_faq-number">03</span>
+                            <h3 class="kyk_faq-question">Dolor sit amet consectetur adipiscing elit pellentesque?</h3>
+                            <span class="kyk_faq-arrow-icon"></span>
+                        </label>
+                        
+                        <div class="kyk_faq-body">
+                            <div class="kyk_faq-body-content">
+                                <p>Eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis orci. Faucibus pulvinar elementum integer enim. Sem nulla pharetra diam sit amet nisl suscipit. Rutrum tellus pellentesque eu tincidunt. Lectus urna duis convallis convallis tellus. Urna molestie at elementum eu facilisis sed odio morbi quis</p>
+                            </div>
+                        </div>
                     </div>
-                </details>
+
+                </div>
+
+                <div class="kyk_faq-image-zone">
+                    <img src="https://bootstrapmade.com/content/demo/Arsha/assets/img/why-us.png" alt="Illustration Graphic" class="kyk_img-faq-graphic">
+                </div>
+
             </div>
-
-            <!-- [우측 블록] 그래픽 이미지 영역 -->
-            <div class="why-us-content-right">
-                <!-- 반응형 이미지 태그 -->
-                <img src="#" class="img-why-us">
-            </div>
-
         </div>
     </section>
     <!-- =========================
