@@ -493,7 +493,6 @@
 
 .syw-info-card:hover,
 .syw-contact-form:hover {
-    transform: translateY(-4px);
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.11);
 }
 
@@ -524,7 +523,6 @@
 
 .syw-info-item:hover .syw-icon-circle {
     background-color: var(--secondary-color);
-    transform: scale(1.08);
 }
 
 .syw-info-item:hover .syw-icon-circle img {
@@ -621,7 +619,6 @@
 
 .syw-btn-submit:hover {
     background-color: #5cc0ee;
-    transform: translateY(-3px);
 }
 
 
