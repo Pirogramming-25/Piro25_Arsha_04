@@ -460,7 +460,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
+
+
 }
+
 
 /* 6개의 로고만 칼같이 보여주는 마스킹 윈도우 상자 */
 .kyk_clients-wrap {
@@ -471,6 +474,12 @@
     overflow: hidden;   /* 6개 영역 외 우측에 대기 중인 이미지 숨김 */
     position: relative;
     background-color: var(--light-bg);
+
+    /* 처음엔 투명하게 축소되어 대기 */
+    animation: kyk_center-zoom-in 1.5s ease-in-out 0.5s forwards;
+    opacity: 0;
+    transform-origin: center center; 
+    animation-trigger: view(contain);
 }
 
 /* 로고들이 배치된 움직이는 트랙 레일 */
@@ -479,7 +488,7 @@
     width: 100%;
     align-items: center;
 
-    animation: kyk_step-sliding 32s cubic-bezier(0.25, 1, 0.5, 1) infinite;
+    animation: kyk_auto-step-slide-pc 32s cubic-bezier(0.25, 1, 0.5, 1) infinite;
 }
 
 /* 개별 이미지 아이템 상자 (전체 너비의 정확히 1/6을 차지하도록 설정) */
@@ -508,36 +517,83 @@
     transform: scale(1.08);
 }
 
+@media (max-width: 1023px) {
+    .kyk_client-item {
+        width: calc(100% / 4); /* 화면에 4개만 노출되도록 크기 확대 */
+    }
+    .kyk_clients-track {
+        /* 태블릿 전용 이동 수식 애니메이션으로 교체 */
+        animation-name: kyk_auto-step-slide-tablet; 
+    }
+}
+
+/* 2. 모바일 구간 (화면 폭 767px 이하) */
+@media (max-width: 767px) {
+    .kyk_client-item {
+        width: calc(100% / 3); /* 스마트폰 폭에 맞춰 화면에 3개만 노출 */
+        padding: 0 10px;       /* 여백 미세 축소 */
+    }
+    .kyk_clients-track {
+        /* 모바일 전용 이동 수식 애니메이션으로 교체 */
+        animation-name: kyk_auto-step-slide-mobile; 
+    }
+    .kyk_img-client-logo {
+        max-height: 26px; /* 모바일 화면에 맞춰 로고 자체 크기 살짝 최적화 */
+    }
+}
+
 /* --- [핵심] 일정 시간 정지 후 다음 칸으로 툭 이동하는 무한 순환 공식 ---
    1칸 이동할 때마다 전체 너비의 '1/6(약 16.666%)'만큼 왼쪽(-값)으로 이동해야 합니다.
    총 8칸을 이동해야 하므로 최종 100% 시점의 이동 거리는 (16.666% * 8) = -133.333%가 됩니다.
    각 구간마다 앞의 약 1.5초는 멈춰있고(정지), 뒤의 0.5초 동안 다음 칸으로 슬라이딩되도록 쪼갰습니다.
 ----------------------------------------------------------------------- */
-@keyframes kyk_step-sliding {
-    /* [1단계] 1~6번 로고 정지 (0s ~ 3s) */
+@keyframes kyk_center-zoom-in {
+    0% {
+        opacity: 0;
+        /* 중심에서 80% 크기로 작게 웅크린 채 시작 */
+        transform: scale(0.4); 
+    }
+    100% {
+        opacity: 1;
+        /* 원래 100% 크기로 사방으로 부드럽게 퍼지며 안착 */
+        transform: scale(1); 
+    }
+}
+
+@keyframes kyk_auto-step-slide-pc {
     0%, 9.375% { transform: translate3d(0, 0, 0); }
-    
-    /* [2단계] 2~7번 로고 정지 (4s ~ 7s) */
     12.5%, 21.875% { transform: translate3d(calc(-100% / 6 * 1), 0, 0); }
-    
-    /* [3단계] 3~8번 로고 정지 (8s ~ 11s) */
     25%, 34.375% { transform: translate3d(calc(-100% / 6 * 2), 0, 0); }
-    
-    /* [4단계] 4번~복제1번 로고 정지 (12s ~ 15s) */
     37.5%, 46.875% { transform: translate3d(calc(-100% / 6 * 3), 0, 0); }
-    
-    /* [5단계] 5번~복제2번 로고 정지 (16s ~ 19s) */
     50%, 59.375% { transform: translate3d(calc(-100% / 6 * 4), 0, 0); }
-    
-    /* [6단계] 6번~복제3번 로고 정지 (20s ~ 23s) */
     62.5%, 71.875% { transform: translate3d(calc(-100% / 6 * 5), 0, 0); }
-    
-    /* [7단계] 7번~복제4번 로고 정지 (24s ~ 27s) */
     75%, 84.375% { transform: translate3d(calc(-100% / 6 * 6), 0, 0); }
-    
-    /* [8단계] 8번~복제5번 로고 정지 (28s ~ 31s) - 우측에 여유 공간이 확보되어 병목 소멸 */
     87.5%, 96.875% { transform: translate3d(calc(-100% / 6 * 7), 0, 0); }
-    
-    /* [완벽한 가속 루프백] 타 구간과 완벽히 동일한 속도로 미끄러지며 루프 */
     100% { transform: translate3d(calc(-100% / 6 * 8), 0, 0); }
+}
+
+/* C. 태블릿 전용 슬라이드 수식 (4칸 기준 이동) */
+@keyframes kyk_auto-step-slide-tablet {
+    0%, 9.375% { transform: translate3d(0, 0, 0); }
+    12.5%, 21.875% { transform: translate3d(calc(-100% / 4 * 1), 0, 0); }
+    25%, 34.375% { transform: translate3d(calc(-100% / 4 * 2), 0, 0); }
+    37.5%, 46.875% { transform: translate3d(calc(-100% / 4 * 3), 0, 0); }
+    50%, 59.375% { transform: translate3d(calc(-100% / 4 * 4), 0, 0); }
+    62.5%, 71.875% { transform: translate3d(calc(-100% / 4 * 5), 0, 0); }
+    75%, 84.375% { transform: translate3d(calc(-100% / 4 * 6), 0, 0); }
+    87.5%, 96.875% { transform: translate3d(calc(-100% / 4 * 7), 0, 0); }
+    100% { transform: translate3d(calc(-100% / 4 * 8), 0, 0); }
+}
+
+/* D. 모바일 전용 슬라이드 수식 (3칸 기준 이동) */
+@keyframes kyk_auto-step-slide-mobile {
+    0%, 9.375% { transform: translate3d(0, 0, 0); }
+    12.5%, 21.875% { transform: translate3d(calc(-100% / 3 * 1), 0, 0); }
+    25%, 34.375% { transform: translate3d(calc(-100% / 3 * 2), 0, 0); }
+    37.5%, 46.875% { transform: translate3d(calc(-100% / 3 * 3), 0, 0); }
+    50%, 59.375% { transform: translate3d(calc(-100% / 3 * 4), 0, 0); }
+    62.5%, 71.875% { transform: translate3d(calc(-100% / 3 * 5), 0, 0); }
+    75%, 84.375% { transform: translate3d(calc(-100% / 3 * 6), 0, 0); }
+    87.5%, 96.875% { transform: translate3d(calc(-100% / 3 * 7), 0, 0); }
+    100% { transform: translate3d(calc(-100% / 3 * 8), 0, 0); }
 }
