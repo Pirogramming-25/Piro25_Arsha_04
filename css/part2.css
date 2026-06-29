@@ -188,48 +188,41 @@
     background-color: var(--light-bg);
     min-width: 320px;
 }
-
 .syw-services-container {
     max-width: 1140px;
-    margin: 60px auto 0;
+    margin: 40px auto 0;
     padding: 0 12px;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 30px;
 }
-
 .syw-service-item {
     background-color: var(--white);
     min-height: 300px;
-    padding: 50px 30px;
+    padding: 40px 30px;
     border-radius: 4px;
-    box-shadow: 0 0 25px rgba(0, 0, 0, 0.06);
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.06);
     display: flex;
     flex-flow: column;
     align-items: flex-start;
-    transition: 0.3s ease;
+    transition: 0.5s ease;
 }
-
 .syw-service-item:hover {
     transform: translateY(-10px);
     box-shadow: 0 12px 35px rgba(0, 0, 0, 0.09);
-}
-
+}   
 .syw-service-icon {
     margin-bottom: 24px;
 }
-
 .syw-service-icon img {
     display: block;
     width: 45px;
     height: 45px;
     object-fit: contain;
 }
-
 .syw-service-title {
     margin-bottom: 16px;
 }
-
 .syw-service-title a {
     color: var(--primary-color);
     font-size: 22px;
@@ -237,7 +230,6 @@
     line-height: 1.15;
     transition: color 0.3s;
 }
-
 .syw-service-item:hover .syw-service-title a {
     color: var(--secondary-color);
 }
@@ -314,7 +306,7 @@
 }
 
 .syw-process-card:hover .syw-process-image img {
-    transform: scale(1.05);
+    transform: scale(1.15);
 }
 
 .syw-step-badge {
