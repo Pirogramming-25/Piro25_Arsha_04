@@ -165,9 +165,9 @@
 @supports (animation-timeline: view()) {
     .syw-progress-bar {
         transform: scaleX(0);
-        animation: sywSkillBarGrow linear both;
+        animation: sywSkillBarGrow 1.2s ease-out both;
         animation-timeline: --syw-skills-view;
-        animation-range: entry 45% cover 70%;
+        animation-range: entry 42% cover 68%;
     }
 }
 /* --------------------------------------------------------------------------
@@ -616,57 +616,57 @@
 .syw-contact-container {
     animation: syw-scroll-fade-up linear both;
     animation-timeline: view();
-    animation-range: entry 0% cover 35%;
+    animation-range: entry 0% cover 42%;
 }
 
 .syw-service-item,
 .syw-process-card {
     animation: syw-scroll-fade-up linear both;
     animation-timeline: view();
-    animation-range: entry 0% cover 55%;
+    animation-range: entry 0% cover 38%;
 }
 
 .syw-service-item:nth-child(1),
 .syw-process-card:nth-child(1) {
-    animation-range: entry 0% cover 45%;
+    animation-range: entry 0% cover 30%;
 }
 
 .syw-service-item:nth-child(2),
 .syw-process-card:nth-child(2) {
-    animation-range: entry 6% cover 51%;
+    animation-range: entry 3% cover 33%;
 }
 
 .syw-service-item:nth-child(3),
 .syw-process-card:nth-child(3) {
-    animation-range: entry 12% cover 57%;
+    animation-range: entry 6% cover 36%;
 }
 
 .syw-service-item:nth-child(4) {
-    animation-range: entry 18% cover 63%;
+    animation-range: entry 9% cover 39%;
 }
 
 .syw-info-item {
     animation: syw-contact-item-fade-up linear both;
     animation-timeline: view();
-    animation-range: entry 0% cover 30%;
+    animation-range: entry 0% cover 28%;
 }
 
 .syw-info-item:nth-child(1) {
-    animation-range: entry 0% cover 24%;
+    animation-range: entry 0% cover 22%;
 }
 
 .syw-info-item:nth-child(2) {
-    animation-range: entry 6% cover 30%;
+    animation-range: entry 4% cover 26%;
 }
 
 .syw-info-item:nth-child(3) {
-    animation-range: entry 12% cover 36%;
+    animation-range: entry 8% cover 30%;
 }
 
 @keyframes syw-scroll-fade-up {
     from {
         opacity: 0;
-        translate: 0 90px;
+        translate: 0 80px;
     }
 
     to {
@@ -678,7 +678,7 @@
 @keyframes syw-contact-item-fade-up {
     from {
         opacity: 0;
-        translate: 0 32px;
+        translate: 0 28px;
     }
 
     to {
