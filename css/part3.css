@@ -296,7 +296,11 @@
 .jsh-section-title,
 .jsh-portfolio-filters,
 .jsh-portfolio-card,
-.jsh-team-card {
+.jsh-team-card,
+.jsh-subscribe-text h2,
+.jsh-subscribe-text p,
+.jsh-subscribe-form,
+.jsh-subscribe-image  {
     animation: jsh-scroll-fade-up 1.2s ease-out both;
     animation-timeline: view();
     animation-range: entry 0% cover 40%;
@@ -437,5 +441,219 @@
     }
     .jsh-team-social {
         justify-content: flex-start;
+    }
+}
+
+/* Subscribe */
+.jsh-subscribe-section {
+    padding: 60px 0 25px;
+    background-color: #ffffff;
+}
+.jsh-subscribe-container {
+    width:90%;
+    max-width: 1320px;
+    margin: 0 auto;
+}
+.jsh-subscribe-content {
+    display: flex; align-items: stretch;
+    justify-content: space-between;
+    gap:40px; padding: 70px 80px 0;
+    border-radius: 15px;
+    background-color: #f5f8f8;
+    overflow: hidden;
+}
+.jsh-subscribe-text {
+    flex:1;
+    padding-top: 90px;
+}
+.jsh-subscribe-text h2 {
+    font-size: 35px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #37517e;
+}
+.jsh-subscribe-text p {
+    max-width: 600px;
+    font-size: 18px;
+    line-height: 1.6;
+    color: #444444;
+    margin-bottom: 28px;
+
+}
+.jsh-subscribe-form {
+    width: 100%;
+    max-width: 560px;
+    height: 48px;
+    display: flex;
+    border: 1px solid #47b2e4;
+    border-radius: 50px;
+    overflow: hidden;
+    background-color: #ffffff;
+}
+.jsh-subscribe-form input {
+    flex: 1;
+    border: none;
+    outline: none;
+    padding: 0 22px;
+    font-size: 15px;
+    color: #444444;
+}
+.jsh-subscribe-form input::placeholder {
+    color: #777777;
+}
+.jsh-subscribe-form button {
+    width: 150px;
+    border: none;
+    background-color: #47b2e4;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.jsh-subscribe-form button:hover {
+    background-color: #209dd8;
+}
+.jsh-subscribe-image {
+    flex: 0 0 360px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+.jsh-subscribe-image img{
+    width: 100%;
+    max-width: 380px;
+    display:block;
+}
+
+/* Subscribe Responsive */
+
+/* 중간 화면부터 1열 전환 */
+/* 991px 이하: 세로 배치 */
+@media (max-width: 991px) {
+    .jsh-subscribe-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 55px 45px 0;
+        gap: 35px;
+    }
+
+    .jsh-subscribe-text {
+        width: 100%;
+        max-width: 760px;
+        padding-top: 0;
+        margin: 0 auto;
+    }
+
+    .jsh-subscribe-text h2 {
+        font-size: 32px;
+    }
+
+    .jsh-subscribe-text p {
+        max-width: 680px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .jsh-subscribe-form {
+        width: 100%;
+        max-width: 560px;
+        height: 48px;
+        margin: 0 auto;
+    }
+
+    .jsh-subscribe-image {
+        flex: none;
+        width: 100%;
+    }
+
+    .jsh-subscribe-image img {
+        max-width: 360px;
+    }
+}
+
+
+/* 768px 이하 */
+@media (max-width: 768px) {
+    .jsh-subscribe-section {
+        padding: 45px 0 20px;
+    }
+
+    .jsh-subscribe-container {
+        width: 92%;
+    }
+
+    .jsh-subscribe-content {
+        padding: 45px 30px 0;
+        border-radius: 12px;
+    }
+
+    .jsh-subscribe-text h2 {
+        font-size: 28px;
+    }
+
+    .jsh-subscribe-text p {
+        font-size: 16px;
+        line-height: 1.55;
+    }
+
+    .jsh-subscribe-form {
+        max-width: 560px;
+        height: 48px;
+    }
+
+    .jsh-subscribe-form button {
+        flex-basis: 140px;
+        font-size: 15px;
+    }
+
+    .jsh-subscribe-image img {
+        max-width: 330px;
+    }
+}
+
+
+/* 576px 이하: 모바일 */
+@media (max-width: 576px) {
+    .jsh-subscribe-container {
+        width: 100%;
+        padding: 0 12px;
+    }
+
+    .jsh-subscribe-content {
+        padding: 40px 20px 0;
+        gap: 28px;
+    }
+
+    .jsh-subscribe-text h2 {
+        font-size: 25px;
+        margin-bottom: 15px;
+    }
+
+    .jsh-subscribe-text p {
+        font-size: 15px;
+        line-height: 1.6;
+        margin-bottom: 24px;
+    }
+
+    .jsh-subscribe-form {
+        width: 100%;
+        max-width: 560px;
+        height: 48px;
+    }
+
+    .jsh-subscribe-form input {
+        padding: 0 18px;
+        font-size: 15px;
+    }
+
+    .jsh-subscribe-form button {
+        flex: 0 0 130px;
+        font-size: 15px;
+    }
+
+    .jsh-subscribe-image img {
+        max-width: 320px;
     }
 }
