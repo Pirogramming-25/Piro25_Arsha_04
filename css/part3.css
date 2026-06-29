@@ -296,11 +296,7 @@
 .jsh-section-title,
 .jsh-portfolio-filters,
 .jsh-portfolio-card,
-.jsh-team-card-inner,
-.jsh-subscribe-text h2,
-.jsh-subscribe-text p,
-.jsh-subscribe-form,
-.jsh-subscribe-image  {
+.jsh-team-card-inner{
     animation: jsh-scroll-fade-up 1.2s ease-out both;
     animation-timeline: view();
     animation-range: entry 0% cover 40%;
@@ -576,42 +572,53 @@
         max-width: 360px;
     }
 }
+/* Subscribe Animation */
+.jsh-subscribe-text h2,
+.jsh-subscribe-text p,
+.jsh-subscribe-form,
+.jsh-subscribe-image {
+    animation: jsh-subscribe-up 1s ease-out both;
+    animation-timeline: view();
+    animation-range: entry 20% cover 45%;
 
-
+}
+@keyframes jsh-subscribe-up {
+    from {
+        opacity: 0;
+        transform: translateY(300px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 /* 768px 이하 */
 @media (max-width: 768px) {
     .jsh-subscribe-section {
         padding: 45px 0 20px;
     }
-
     .jsh-subscribe-container {
         width: 92%;
     }
-
     .jsh-subscribe-content {
         padding: 45px 30px 0;
         border-radius: 12px;
     }
-
     .jsh-subscribe-text h2 {
         font-size: 28px;
     }
-
     .jsh-subscribe-text p {
         font-size: 16px;
         line-height: 1.55;
     }
-
     .jsh-subscribe-form {
         max-width: 560px;
         height: 48px;
     }
-
     .jsh-subscribe-form button {
         flex-basis: 140px;
         font-size: 15px;
     }
-
     .jsh-subscribe-image img {
         max-width: 330px;
     }
@@ -624,17 +631,14 @@
         width: 100%;
         padding: 0 12px;
     }
-
     .jsh-subscribe-content {
         padding: 40px 20px 0;
         gap: 28px;
     }
-
     .jsh-subscribe-text h2 {
         font-size: 25px;
         margin-bottom: 15px;
     }
-
     .jsh-subscribe-text p {
         font-size: 15px;
         line-height: 1.6;
