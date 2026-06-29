@@ -767,10 +767,27 @@
     margin-top: 30px;
     font-size: 15px;
     margin-bottom: 20px;
+    text-align: left;
 }
 
-.jhw-ft-social-links {}
-.jhw-ft-social-links img {}
+.jhw-ft-social-links {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.jhw-ft-social-links img {
+    width: 35px;
+    height: 35px;
+    object-fit: contain;
+    border: 1px solid #aaa;
+    border-radius: 24px;
+    transition: filter 0.5s ease;
+    filter: invert(50%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
+}
+.jhw-ft-social-links img:hover {
+    border: 1px solid var(--secondary-color) ;
+    filter: invert(64%) sepia(21%) saturate(1141%) hue-rotate(174deg) brightness(92%) contrast(89%);
+}
 
 .jhw-ft-right {
     display: flex;
@@ -821,6 +838,9 @@
         grid-template-columns: 2.5fr 1.5fr 1.5fr 2.5fr;
         align-items: start;
         gap: 40px; 
+    }
+    .jhw-ft-follow {
+        grid-column: auto; 
     }
 }
 
