@@ -1,0 +1,808 @@
+/* ==========================================================================
+   Part 2. Skills, Services, Work Process, CTA, Contact
+   담당: 신예원 (syw-)
+========================================================================== */
+/* --------------------------------------------------------------------------
+   0. 공통 섹션 타이틀
+-------------------------------------------------------------------------- */
+.syw-section-title {
+    text-align: center;
+    padding-bottom: 40px;
+}
+.syw-section-title h2 {
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--heading-color);
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    position: relative;
+}
+.syw-section-title h2::before {
+    content: "";
+    position: absolute;
+    width: 120px;
+    height: 1px;
+    background-color: #ddd;
+    left: 50%;
+    bottom: 1px;
+    transform: translateX(-50%);
+}
+
+.syw-section-title h2::after {
+    content: "";
+    position: absolute;
+    width: 40px;
+    height: 3px;
+    background-color: var(--secondary-color);
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+}
+
+.syw-section-title p {
+    color: var(--text-color);
+    font-size: 16px;
+    line-height: 1.6;
+    max-width: 760px;
+    margin: 0 auto;
+}
+
+/* --------------------------------------------------------------------------
+   7. Skills
+-------------------------------------------------------------------------- */
+
+.syw-skills-section {
+    padding: 70px 0;
+    background-color: var(--white);
+    min-width: 320px;
+    overflow: hidden;
+    view-timeline-name: --syw-skills-view;
+    view-timeline-axis: block;
+}
+
+.syw-skills-container {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 12px;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    gap: 50px;
+}
+
+.syw-skills-content-left,
+.syw-skills-content-right {
+    width: 50%;
+    min-width: 0;
+}
+
+.syw-img-skills {
+    display: block;
+    width: 100%;
+    max-width: 560px;
+    margin: 0 auto;
+}
+
+.syw-skills-title {
+    color: var(--primary-color);
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 14px;
+}
+
+.syw-skills-desc {
+    color: #666;
+    font-size: 15px;
+    font-style: italic;
+    line-height: 1.6;
+    margin-bottom: 28px;
+}
+
+.syw-progress-group {
+    width: 100%;
+}
+
+.syw-progress-item {
+    margin-bottom: 24px;
+}
+
+.syw-progress-item:last-child {
+    margin-bottom: 0;
+}
+
+.syw-progress-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.syw-skill-name,
+.syw-skill-percent {
+    color: var(--text-color);
+    font-size: 13px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.syw-skill-name {
+    text-transform: uppercase;
+}
+
+.syw-progress-bar-wrap {
+    width: 100%;
+    height: 10px;
+    background-color: #e8edf5;
+    overflow: hidden;
+}
+
+.syw-progress-bar {
+    width: var(--skill-width);
+    height: 100%;
+    background-color: var(--primary-color) !important;
+    transform: scaleX(1);
+    transform-origin: left center;
+}
+
+.syw-progress-item:nth-child(1) .syw-progress-bar {
+    --skill-width: 100%;
+}
+
+.syw-progress-item:nth-child(2) .syw-progress-bar {
+    --skill-width: 90%;
+}
+
+.syw-progress-item:nth-child(3) .syw-progress-bar {
+    --skill-width: 75%;
+}
+
+.syw-progress-item:nth-child(4) .syw-progress-bar {
+    --skill-width: 55%;
+}
+
+@supports (animation-timeline: view()) {
+    .syw-progress-bar {
+        transform: scaleX(0);
+        animation: sywSkillBarGrow 1.2s ease-out both;
+        animation-timeline: --syw-skills-view;
+        animation-range: entry 42% cover 68%;
+    }
+}
+/* --------------------------------------------------------------------------
+   8. Services
+-------------------------------------------------------------------------- */
+
+.syw-services-section {
+    padding: 70px 0 80px;
+    background-color: var(--light-bg);
+    min-width: 320px;
+}
+.syw-services-container {
+    max-width: 1140px;
+    margin: 40px auto 0;
+    padding: 0 12px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+}
+.syw-service-item {
+    background-color: var(--white);
+    min-height: 270px;
+    padding: 40px 30px;
+    border-radius: 4px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.06);
+    display: flex;
+    flex-flow: column;
+    align-items: flex-start;
+    transition: 0.5s ease;
+}
+.syw-service-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 37px rgba(0, 0, 0, 0.09);
+}   
+.syw-service-icon {
+    margin-bottom: 24px;
+}
+.syw-service-icon img {
+    display: block;
+    width: 47px;
+    height: 47px;
+    object-fit: contain;
+}
+.syw-service-title {
+    margin-bottom: 16px;
+}
+.syw-service-title a {
+    color: var(--primary-color);
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.15;
+    transition: color 0.3s;
+}
+.syw-service-item:hover .syw-service-title a {
+    color: var(--secondary-color);
+}
+.syw-service-desc {
+    color: var(--text-color);
+    font-size: 15px;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   9. Work Process
+-------------------------------------------------------------------------- */
+
+.syw-work-process-section {
+    padding: 70px 0 80px;
+    background-color: var(--white);
+    min-width: 320px;
+}
+.syw-process-container {
+    max-width: 1200px;
+    margin: 55px auto 0;
+    padding: 0 24px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+.syw-process-card {
+    background-color: var(--white);
+    border: 1px solid #e2e8f0;
+    border-radius: 18px;
+    overflow: hidden;
+    text-align: left;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.08);
+    transition: transform 0.65s ease, box-shadow 0.65s ease;
+}
+.syw-process-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 14px 40px rgba(71, 178, 228, 0.16);
+}
+.syw-process-image,
+.syw-step-badge,
+.syw-process-title,
+.syw-process-desc,
+.syw-process-list {
+    transition: transform 0.65s ease;
+}
+
+.syw-process-card:hover .syw-process-image,
+.syw-process-card:hover .syw-process-title,
+.syw-process-card:hover .syw-process-desc,
+.syw-process-card:hover .syw-process-list {
+    transform: translateY(-7px);
+}
+
+.syw-process-card:hover .syw-step-badge {
+    transform: translateY(-7px) scale(1.08);
+}
+
+.syw-process-image {
+    width: 100%;
+    height: 260px;
+    overflow: hidden;
+}
+
+.syw-process-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.65s ease;
+}
+
+.syw-process-card:hover .syw-process-image img {
+    transform: scale(1.1);
+}
+
+.syw-step-badge {
+    width: 64px;
+    height: 64px;
+    background-color: var(--secondary-color);
+    color: var(--white);
+    border: none;
+    border-radius: 50%;
+    margin: -34px 0 18px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: 700;
+    position: relative;
+    z-index: 2;
+}
+
+.syw-process-title {
+    color: var(--primary-color);
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.25;
+    margin: 0 30px 16px;
+}
+
+.syw-process-desc {
+    color: #666;
+    font-size: 15px;
+    line-height: 1.65;
+    margin: 0 30px 24px;
+}
+
+.syw-process-list {
+    margin: 0 30px 34px;
+}
+
+.syw-process-list li {
+    color: #666;
+    font-size: 15px;
+    line-height: 1.5;
+    margin-bottom: 14px;
+    padding-left: 32px;
+    position: relative;
+}
+
+.syw-process-list li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    top: 1px;
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--secondary-color);
+    border-radius: 50%;
+    color: var(--secondary-color);
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 16px;
+    text-align: center;
+}
+
+/* --------------------------------------------------------------------------
+   10. CTA
+-------------------------------------------------------------------------- */
+
+.syw-cta-section {
+    position: relative;
+    padding: 110px 0;
+    background-image: url("../img/syw-cta.png.webp");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    min-width: 320px;
+    overflow: hidden;
+}
+
+.syw-cta-section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: rgba(40, 58, 90, 0.78);
+    z-index: 1;
+}
+
+.syw-cta-container {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    position: relative;
+    z-index: 2;
+}
+
+.syw-cta-text-wrap {
+    flex: 1;
+}
+
+.syw-cta-title {
+    color: var(--white);
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.syw-cta-desc {
+    color: var(--white);
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.syw-cta-btn-wrap {
+    flex: 0 0 260px;
+    text-align: center;
+}
+
+.syw-btn-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    border: 2px solid var(--white);
+    border-radius: 50px;
+    padding: 17px 42px;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    background-color: transparent;
+    transition: 0.65s ease;
+}
+
+.syw-btn-cta:hover {
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+}
+
+
+/* --------------------------------------------------------------------------
+   11. Contact
+-------------------------------------------------------------------------- */
+
+.syw-contact-section {
+    padding: 60px 0 80px;
+    background-color: var(--white);
+    overflow: hidden;
+}
+
+.syw-contact-container {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 12px;
+    display: flex;
+    gap: 24px;
+    align-items: stretch;
+}
+
+.syw-contact-info-wrap {
+    flex: 0 0 calc(40% - 12px);
+}
+
+.syw-contact-form-wrap {
+    flex: 0 0 calc(60% - 12px);
+}
+
+.syw-info-card,
+.syw-contact-form {
+    height: 100%;
+    background-color: var(--white);
+    padding: 30px;
+    border-top: 3px solid var(--secondary-color);
+    border-bottom: 3px solid var(--secondary-color);
+    box-shadow: 0 0 24px rgba(0, 0, 0, 0.08);
+    transition: 0.35s ease;
+}
+
+.syw-info-card:hover,
+.syw-contact-form:hover {
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.11);
+}
+
+.syw-info-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    margin-bottom: 32px;
+}
+
+.syw-icon-circle {
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+    border-radius: 50%;
+    background-color: #eef9fd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s ease;
+}
+
+.syw-icon-circle img {
+    width: 22px;
+    height: 22px;
+    object-fit: contain;
+}
+
+.syw-info-item:hover .syw-icon-circle {
+    background-color: var(--secondary-color);
+}
+
+.syw-info-item:hover .syw-icon-circle img {
+    filter: brightness(0) invert(1);
+}
+
+.syw-info-item h4 {
+    color: var(--primary-color);
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+.syw-info-item p {
+    color: var(--text-color);
+    font-size: 14px;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.syw-contact-map {
+    width: 100%;
+    height: 290px;
+    border: 0;
+    display: block;
+    margin-top: 8px;
+}
+
+.syw-form-row {
+    display: flex;
+    gap: 24px;
+}
+
+.syw-form-group {
+    width: 100%;
+    margin-bottom: 24px;
+}
+
+.syw-half {
+    width: 50%;
+}
+
+.syw-form-group label {
+    display: block;
+    color: var(--text-color);
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.syw-form-group input,
+.syw-form-group textarea {
+    width: 100%;
+    border: 1px solid #ddd;
+    outline: none;
+    color: var(--text-color);
+    font-size: 15px;
+    font-family: inherit;
+    padding: 10px 12px;
+    background-color: var(--white);
+    transition: 0.3s ease;
+}
+
+.syw-form-group input {
+    height: 44px;
+}
+
+.syw-form-group textarea {
+    min-height: 245px;
+    line-height: 1.5;
+    resize: vertical;
+}
+
+.syw-form-group input:focus,
+.syw-form-group textarea:focus {
+    border-color: var(--secondary-color);
+}
+
+.syw-form-submit {
+    text-align: center;
+    margin-top: 6px;
+}
+
+.syw-btn-submit {
+    background-color: var(--secondary-color);
+    color: var(--white);
+    padding: 13px 34px;
+    border-radius: 50px;
+    font-size: 16px;
+    font-family: inherit;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.syw-btn-submit:hover {
+    background-color: #5cc0ee;
+}
+
+
+/* --------------------------------------------------------------------------
+   애니메이션
+-------------------------------------------------------------------------- */
+
+.syw-section-title,
+.syw-skills-container,
+.syw-services-container,
+.syw-process-container,
+.syw-cta-container,
+.syw-contact-container {
+    opacity: 0;
+    transform: translateY(100px) scale(0.96);
+    animation: syw-scroll-fade-up 1.4s ease-out both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 42%;
+}
+
+@keyframes syw-scroll-fade-up {
+    0% {
+        opacity: 0;
+        transform: translateY(100px) scale(0.96);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes sywSkillBarGrow {
+    from {
+        transform: scaleX(0);
+    }
+
+    to {
+        transform: scaleX(1);
+    }
+}
+/* --------------------------------------------------------------------------
+   반응형
+-------------------------------------------------------------------------- */
+
+@media (max-width: 991px) {
+    .syw-skills-container,
+    .syw-cta-container,
+    .syw-contact-container {
+        max-width: 720px;
+        flex-direction: column;
+    }
+
+    .syw-skills-content-left,
+    .syw-skills-content-right,
+    .syw-contact-info-wrap,
+    .syw-contact-form-wrap {
+        width: 100%;
+        flex: 0 0 100%;
+    }
+
+    .syw-services-container {
+        max-width: 900px;
+        padding: 0 24px;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .syw-process-container {
+        max-width: 760px;
+        grid-template-columns: 1fr;
+    }
+
+    .syw-process-image {
+        height: 320px;
+    }
+
+    .syw-cta-section {
+        padding: 90px 0;
+    }
+
+    .syw-cta-container {
+        text-align: center;
+    }
+
+    .syw-cta-btn-wrap {
+        width: 100%;
+        flex: 0 0 auto;
+    }
+
+    .syw-contact-map {
+        height: 300px;
+    }
+}
+
+@media (max-width: 767px) {
+    .syw-section-title {
+        padding-bottom: 32px;
+    }
+
+    .syw-section-title h2 {
+        font-size: 28px;
+    }
+
+    .syw-section-title p {
+        font-size: 15px;
+        padding: 0 12px;
+    }
+
+    .syw-skills-section,
+    .syw-services-section,
+    .syw-work-process-section,
+    .syw-contact-section {
+        padding: 55px 0 65px;
+    }
+
+    .syw-skills-container,
+    .syw-services-container,
+    .syw-process-container,
+    .syw-cta-container,
+    .syw-contact-container {
+        max-width: 540px;
+        padding: 0 20px;
+    }
+
+    .syw-skills-title {
+        font-size: 28px;
+    }
+
+    .syw-skills-desc {
+        font-size: 15px;
+    }
+
+    .syw-progress-bar-wrap {
+        height: 9px;
+    }
+
+    .syw-skill-name,
+    .syw-skill-percent {
+        font-size: 12px;
+    }
+
+    .syw-services-container {
+        grid-template-columns: 1fr;
+    }
+
+    .syw-service-item {
+        min-height: 260px;
+        padding: 48px 40px;
+    }
+
+    .syw-process-image {
+        height: 250px;
+    }
+
+    .syw-step-badge {
+        width: 60px;
+        height: 60px;
+        font-size: 22px;
+        margin: -32px 0 18px 26px;
+    }
+
+    .syw-process-title,
+    .syw-process-desc,
+    .syw-process-list {
+        margin-left: 26px;
+        margin-right: 26px;
+    }
+
+    .syw-cta-section {
+        padding: 80px 0;
+        background-attachment: scroll;
+    }
+
+    .syw-cta-title {
+        font-size: 26px;
+    }
+
+    .syw-cta-desc {
+        font-size: 15px;
+        line-height: 1.7;
+    }
+
+    .syw-btn-cta {
+        padding: 16px 38px;
+        font-size: 15px;
+    }
+
+    .syw-info-card,
+    .syw-contact-form {
+        padding: 28px 24px;
+    }
+
+    .syw-form-row {
+        flex-direction: column;
+        gap: 0;
+    }
+    .syw-half {
+        width: 100%;
+    }
+    .syw-contact-map {
+        height: 280px;
+    }
+}
