@@ -419,7 +419,7 @@
 .syw-cta-desc {
     color: var(--white);
     font-size: 16px;
-    line-height: 1.6;
+    line-height: 1.5;
 }
 
 .syw-cta-btn-wrap {
@@ -432,20 +432,19 @@
     align-items: center;
     justify-content: center;
     color: var(--white);
-    border: 2px solid var(--white);
+    border: 1.9px solid var(--white);
     border-radius: 50px;
     padding: 17px 42px;
     font-size: 16px;
-    font-weight: 700;
+    font-weight: 500;
     letter-spacing: 0.5px;
     background-color: transparent;
-    transition: 0.3s ease;
+    transition: 0.65s ease;
 }
 
 .syw-btn-cta:hover {
     background-color: var(--secondary-color);
     border-color: var(--secondary-color);
-    transform: translateY(-3px);
 }
 
 
