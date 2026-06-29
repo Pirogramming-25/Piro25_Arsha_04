@@ -224,9 +224,6 @@
 
 /* testimonials */
 
-.testimonials-section,.faq-section {
-    padding:0px;
-}
 .jhw-testimonials {
     padding: 60px;
     background-color: var(--white);
