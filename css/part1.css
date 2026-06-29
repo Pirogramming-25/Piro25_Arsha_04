@@ -1,0 +1,543 @@
+/* =========================
+   kyk_demo-preview-bar
+========================= */
+.kyk_demo-preview-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 32px;
+    background-color:#023b6d;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    padding: 0 0px;
+}
+
+.kyk_preview-container {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* 1. 좌측 로고 영역 */
+.kyk_preview-left-block {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    padding-left: 10px;
+}
+.kyk_img-preview-logo {
+    height: 24px;
+}
+
+/* 1. 좌측 로고 영역 호버 */
+
+
+/* 좌측 디바이스 스위처 호버 및 활성화 상태 */
+.kyk_btn-device-view {
+    padding: 3px;
+}
+/* [호버 상태] 마우스를 올렸을 때 */
+.kyk_btn-device-view:hover {
+    color: var(--white);
+}
+.kyk_brand-text {
+    font-weight: 700;
+    color: var(--white);
+    font-size: 15px;
+    letter-spacing: 0.5px;
+}
+
+/* 2. 중앙 템플릿 이름 및 화살표 */
+.kyk_preview-center-block {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: var(--white);
+    font-weight: 500;
+    font-size: 15px;
+}
+
+.kyk_template-name {
+    padding-bottom: 3px;
+    font-weight: 800;
+}
+
+.kyk_btn-nav-arrow {
+    color: rgba(255,255,255,0.7);
+    display: flex;
+    align-items: center;
+}
+/* [호버 상태] 마우스를 올렸을 때 */
+.kyk_btn-nav-arrow:hover {
+    color: var(--white);
+}
+
+/* 3. 우측 액션 영역 */
+.kyk_preview-right-block {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+
+.kyk_btn-preview-hide:hover {
+    color: var(--white);
+}
+
+
+/* 다운로드 버튼 */
+.kyk_btn-preview-download {
+    background: var(--secondary-color);
+    color: var(--white);
+    padding: 7px 18px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;    
+    gap: 8px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.kyk_btn-preview-download:hover {
+    background: #379fce;
+}
+.kyk_btn-preview-download svg {
+    width: 16px;
+    height: 16px;
+}
+
+/* ---------------------------------------------------------------- */
+
+/* ==========================================
+   2. 메인 내비게이션 바 (Main Navigation Header)
+========================================== */
+
+/* 헤더 전체 고정 및 배경 설정 */
+.kyk_main-header {
+    position: fixed;
+    top: 32px;
+    left: 0;
+    right: 0;
+    background-color: var(--primary-color);
+    padding: 27px 0;
+    z-index: 9999;
+    transition: all 0.5s;
+}
+
+/* 내부 컨테이너 정렬 (좌측 로고와 우측 여백 균형을 위해 변경) */
+.kyk_header-container {
+    width: 100%;
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 0 15x;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* 로고는 왼쪽, 내비게이션은 전체 우측 영역을 차지하되 내부에서 정렬 */
+}
+
+/* --- [좌측 블록] 로고 영역 --- */
+.kyk_header-logo-block .kyk_logo-title a {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--white);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding-left: 75px;
+}
+
+/* --- [중앙 블록] 메인 내비게이션 (중앙 집중 정렬) --- */
+.kyk_main-navbar {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;                 /* 로고 제외 남은 공간 확보 */
+    justify-content: center;    /* 메뉴 전체를 완벽한 센터로 정렬 */
+    padding-left: 50px;
+}
+
+.kyk_nav-menu-list {
+    display: flex;
+    align-items: center;
+    gap: 2px;                    /* 메뉴 요소들 사이의 공통 간격 */
+}
+
+/* 1차 메뉴 아이템 구조 */
+.kyk_nav-item {
+    position: relative;
+}
+
+.kyk_nav-link, 
+.kyk_nav-link-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 15px;
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--white);
+    transition: 0.3s;
+}
+
+/* 1차 메뉴 호버 및 활성화 상태 */
+.kyk_nav-link:hover,
+.kyk_nav-link-toggle:hover,
+.kyk_nav-link.kyk_active {
+    color: var(--secondary-color);
+}
+
+/* 드롭다운 아이콘 공통 설정 */
+.kyk_img-icon-chevron-down,
+.kyk_img-icon-chevron-right {
+    width: 12px;
+    height: 12px;
+    margin-left: 5px;
+    filter: invert(1);
+}
+
+/* --- 드롭다운 공통 기본 스타일 --- */
+.kyk_dropdown-sub-menu,
+.kyk_dropdown-deep-menu {
+    position: absolute;
+    display: block;
+    visibility: hidden;
+    opacity: 0;
+    background-color: var(--white);
+    box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);
+    transition: 0.3s;
+    border-radius: 4px;
+    z-index: 99;
+    padding: 10px 0;
+}
+
+.kyk_svg-icon-chevron-down,
+.kyk_svg-icon-chevron-right {
+    width: 12px;
+    height: 12px;
+    margin-left: 6px;
+    transition: 0.3s;
+}
+
+.kyk_dropdown-sub-menu li,
+.kyk_dropdown-deep-menu li {
+    min-width: 200px;
+}
+
+.kyk_dropdown-sub-menu a,
+.kyk_dropdown-deep-menu a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-color);
+    transition: 0.3s;
+}
+
+.kyk_dropdown-sub-menu a:hover,
+.kyk_dropdown-deep-menu a:hover,
+.kyk_dropdown-sub-menu .kyk_has-deep-dropdown:hover > a {
+    color: var(--secondary-color);
+}
+
+/* --- [2차 드롭다운] 위치 및 노출 --- */
+.kyk_dropdown-sub-menu {
+    top: calc(100% + 30px);
+    left: 0;
+}
+
+.kyk_has-dropdown:hover > .kyk_dropdown-sub-menu {
+    opacity: 1;
+    visibility: visible;
+    top: 100%;
+}
+
+/* --- [3차 딥 드롭다운] 위치 및 노출 --- */
+.kyk_dropdown-deep-menu {
+    top: 0;
+    left: calc(100% + 30px);
+}
+
+.kyk_has-deep-dropdown {
+    position: relative;
+}
+
+.kyk_has-deep-dropdown:hover > .kyk_dropdown-deep-menu {
+    opacity: 1;
+    visibility: visible;
+    left: 100%;
+}
+
+.kyk_has-deep-dropdown .kyk_img-icon-chevron-right {
+    filter: none;
+}
+
+
+/* --- [통합 버튼 스타일 블록] --- */
+.kyk_nav-item-btn {
+    display: flex;
+    align-items: center;
+}
+
+/* Get Started 시작하기 버튼 (리스트 내 정렬 맞춤) */
+.kyk_btn-get-started {
+    padding: 8px 25px; 
+    margin-left: 15px;            /* Contact 메뉴와의 최소 간격 */
+    border-radius: 50px;
+    color: var(--white);
+    background: var(--secondary-color);
+    font-size: 14px;
+    font-weight: 600;
+    transition: 0.3s;
+    display: inline-block;
+}
+
+.kyk_btn-get-started:hover {
+    background-color: #379fce
+}
+
+/* 모바일 토글 버튼 (PC 버전 기본 숨김) */
+.kyk_btn-mobile-menu-toggle {
+    display: none;
+    font-size: 28px;
+    color: var(--white);
+    margin-left: 10px;
+}
+/* ------------------------------------------------ */
+
+/* ==========================================
+   3. 히어로 섹션 (Hero 대문 비주얼 영역) - 겹침 현상 해결 버전
+========================================== */
+
+/* 섹션 전체 배경 및 높이 설정 정밀 보정 */
+.kyk_hero-section {
+    width: 100%;
+    /* 상단 데모바(32px) + 메인헤더(약 98px) = 약 130px의 여백을 상단에 확보 */
+    padding: 140px 0 60px 0; 
+    
+    /* 전체 화면 높이(100vh)에서 늘어난 패딩 공간만큼을 제외하여 불필요한 스크롤 발생 방지 */
+    min-height: calc(100vh - 140px); 
+    
+    background-color: var(--primary-color);
+    display: flex;
+    align-items: center;      /* 세로축 기준 중앙 정렬 */
+    position: relative;
+    overflow: hidden;
+}
+
+/* 내부 콘텐츠 가로 분할 컨테이너 */
+.kyk_hero-container {
+    width: 100%;
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+/* --- [좌측 블록] 콘텐츠 영역 --- */
+.kyk_hero-content-left {
+    flex: 1;
+    max-width: 600px;
+    padding-left:50px;
+}
+
+/* 메인 핵심 헤드라인 */
+.kyk_hero-main-title {
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 56px;
+    color: var(--white);
+    margin-bottom: 10px;
+}
+
+/* 보조 서브 타이틀 */
+.kyk_hero-sub-title {
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 32px;
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 40px;
+}
+
+/* 버튼 정렬 그룹 */
+.kyk_hero-buttons-group {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+/* 파트 A: Get Started 버튼 */
+.kyk_btn-hero-start {
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    display: inline-block;
+    padding: 10px 28px;
+    border-radius: 50px;
+    transition: 0.5s;
+    color: var(--white);
+    background-color: var(--secondary-color);
+}
+
+.kyk_btn-hero-start:hover {
+    background-color: #209dd8;
+}
+
+/* 파트 B: Watch Video 버튼 */
+.kyk_btn-hero-video {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--white);
+    transition: 0.5s;
+}
+
+.kyk_svg-icon-play {
+    width: 32px;
+    height: 32px;
+    color: var(--white);
+    margin-right: 8px;
+    border: 2px solid rgba(255, 255, 255, 0.6);
+    border-radius: 50px;
+    padding: 4px;
+    transition: 0.5s;
+}
+
+.kyk_btn-hero-video:hover {
+    color: var(--secondary-color);
+}
+
+.kyk_btn-hero-video:hover .kyk_svg-icon-play {
+    color: var(--secondary-color);
+    border-color: var(--secondary-color);
+}
+
+
+/* --- [우측 블록] 그래픽 일러스트 영역 --- */
+.kyk_hero-image-right {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-right:50px;
+}
+
+/* 메인 대문 이미지 규격 및 공중 부양 애니메이션 바인딩 */
+.kyk_img-hero-animated {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    animation: kyk_animated-hero 3.5s ease-in-out infinite alternate;
+}
+
+/* 위아래로 부드럽게 둥둥 뜨는 핵심 프레임 설정 */
+@keyframes kyk_animated-hero {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-20px);
+    }
+}
+
+/* -----------------------------------------------*/
+
+/* ==========================================
+   4. 클라이언트 로고 바 (Clients Section)
+========================================== */
+
+
+.kyk_clients-section {
+    width: 100%;
+    padding: 15px 0;
+    background-color: var(--light-bg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 6개의 로고만 칼같이 보여주는 마스킹 윈도우 상자 */
+.kyk_clients-wrap {
+    width: 100%;
+    max-width: 1200px; /* 유동적인 반응형 대응 및 정렬 기준 폭 */
+    margin: 0 auto;
+    padding: 0 10px;
+    overflow: hidden;   /* 6개 영역 외 우측에 대기 중인 이미지 숨김 */
+    position: relative;
+    background-color: var(--light-bg);
+}
+
+/* 로고들이 배치된 움직이는 트랙 레일 */
+.kyk_clients-track {
+    display: flex;
+    width: 100%;
+    align-items: center;
+
+    animation: kyk_step-sliding 32s cubic-bezier(0.25, 1, 0.5, 1) infinite;
+}
+
+/* 개별 이미지 아이템 상자 (전체 너비의 정확히 1/6을 차지하도록 설정) */
+.kyk_client-item {
+    /* 부모 컨테이너(.kyk_clients-wrap) 내부 폭 기준 정확히 6등분 처리 */
+    width: calc(100% / 6); 
+    flex-shrink: 0;       /* 크기 압축 방지 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 15px;      /* 로고 간 일정한 양옆 간격 확보 */
+    box-sizing: border-box;
+}
+
+/* 로고 이미지 자체 스타일 */
+.kyk_img-client-logo {
+    width: auto;
+    height: auto;
+    max-height: 32px;
+    max-width: 100%;
+    transition: all 0.3s ease;
+}
+
+.kyk_img-client-logo:hover {
+    opacity: 1;
+    transform: scale(1.08);
+}
+
+/* --- [핵심] 일정 시간 정지 후 다음 칸으로 툭 이동하는 무한 순환 공식 ---
+   1칸 이동할 때마다 전체 너비의 '1/6(약 16.666%)'만큼 왼쪽(-값)으로 이동해야 합니다.
+   총 8칸을 이동해야 하므로 최종 100% 시점의 이동 거리는 (16.666% * 8) = -133.333%가 됩니다.
+   각 구간마다 앞의 약 1.5초는 멈춰있고(정지), 뒤의 0.5초 동안 다음 칸으로 슬라이딩되도록 쪼갰습니다.
+----------------------------------------------------------------------- */
+@keyframes kyk_step-sliding {
+    /* [1단계] 1~6번 로고 정지 (0s ~ 3s) */
+    0%, 9.375% { transform: translate3d(0, 0, 0); }
+    
+    /* [2단계] 2~7번 로고 정지 (4s ~ 7s) */
+    12.5%, 21.875% { transform: translate3d(calc(-100% / 6 * 1), 0, 0); }
+    
+    /* [3단계] 3~8번 로고 정지 (8s ~ 11s) */
+    25%, 34.375% { transform: translate3d(calc(-100% / 6 * 2), 0, 0); }
+    
+    /* [4단계] 4번~복제1번 로고 정지 (12s ~ 15s) */
+    37.5%, 46.875% { transform: translate3d(calc(-100% / 6 * 3), 0, 0); }
+    
+    /* [5단계] 5번~복제2번 로고 정지 (16s ~ 19s) */
+    50%, 59.375% { transform: translate3d(calc(-100% / 6 * 4), 0, 0); }
+    
+    /* [6단계] 6번~복제3번 로고 정지 (20s ~ 23s) */
+    62.5%, 71.875% { transform: translate3d(calc(-100% / 6 * 5), 0, 0); }
+    
+    /* [7단계] 7번~복제4번 로고 정지 (24s ~ 27s) */
+    75%, 84.375% { transform: translate3d(calc(-100% / 6 * 6), 0, 0); }
+    
+    /* [8단계] 8번~복제5번 로고 정지 (28s ~ 31s) - 우측에 여유 공간이 확보되어 병목 소멸 */
+    87.5%, 96.875% { transform: translate3d(calc(-100% / 6 * 7), 0, 0); }
+    
+    /* [완벽한 가속 루프백] 타 구간과 완벽히 동일한 속도로 미끄러지며 루프 */
+    100% { transform: translate3d(calc(-100% / 6 * 8), 0, 0); }
+}
