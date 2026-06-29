@@ -1,18 +1,14 @@
 /* ==========================================================================
-   [Part 2] Skills, Services, Work Process, CTA, Contact
+   Part 2. Skills, Services, Work Process, CTA, Contact
    담당: 신예원 (syw-)
 ========================================================================== */
-
-
 /* --------------------------------------------------------------------------
    0. 공통 섹션 타이틀
 -------------------------------------------------------------------------- */
-
 .syw-section-title {
     text-align: center;
     padding-bottom: 40px;
 }
-
 .syw-section-title h2 {
     font-size: 32px;
     font-weight: 700;
@@ -22,7 +18,6 @@
     padding-bottom: 20px;
     position: relative;
 }
-
 .syw-section-title h2::before {
     content: "";
     position: absolute;
@@ -254,7 +249,6 @@
     margin: 0;
 }
 
-
 /* --------------------------------------------------------------------------
    9. Work Process
 -------------------------------------------------------------------------- */
@@ -264,7 +258,6 @@
     background-color: var(--white);
     min-width: 320px;
 }
-
 .syw-process-container {
     max-width: 1200px;
     margin: 55px auto 0;
@@ -273,48 +266,37 @@
     grid-template-columns: repeat(3, 1fr);
     gap: 30px;
 }
-
 .syw-process-card {
     background-color: var(--white);
     border: 1px solid #e2e8f0;
     border-radius: 18px;
     overflow: hidden;
     text-align: left;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
-    transition: 0.3s ease;
-    animation: sywFadeUp 0.8s ease both;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.08);
+    transition: transform 0.65s ease, box-shadow 0.65s ease;
 }
-
 .syw-process-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 14px 40px rgba(0, 0, 0, 0.09);
+    transform: translateY(-10px);
+    box-shadow: 0 14px 40px rgba(71, 178, 228, 0.16);
 }
-
-.syw-process-card:nth-child(1) {
-    animation-delay: 0.1s;
-}
-
-.syw-process-card:nth-child(2) {
-    animation-delay: 0.25s;
-}
-
-.syw-process-card:nth-child(3) {
-    animation-delay: 0.4s;
-}
-
 .syw-process-image,
 .syw-step-badge,
 .syw-process-title,
 .syw-process-desc,
 .syw-process-list {
-    transition: transform 0.3s ease;
+    transition: transform 0.65s ease;
 }
 
 .syw-process-card:hover .syw-process-image,
+.syw-process-card:hover .syw-step-badge,
 .syw-process-card:hover .syw-process-title,
 .syw-process-card:hover .syw-process-desc,
 .syw-process-card:hover .syw-process-list {
     transform: translateY(-7px);
+}
+
+.syw-process-card:hover .syw-step-badge {
+    transform: translateY(-7px) scale(1.08);
 }
 
 .syw-process-image {
@@ -328,7 +310,7 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: 0.4s ease;
+    transition: transform 0.65s ease;
 }
 
 .syw-process-card:hover .syw-process-image img {
@@ -340,7 +322,7 @@
     height: 64px;
     background-color: var(--secondary-color);
     color: var(--white);
-    border: 4px solid var(--white);
+    border: none;
     border-radius: 50%;
     margin: -34px 0 18px 30px;
     display: flex;
@@ -350,10 +332,6 @@
     font-weight: 700;
     position: relative;
     z-index: 2;
-}
-
-.syw-process-card:hover .syw-step-badge {
-    transform: translateY(-7px) scale(1.08);
 }
 
 .syw-process-title {
@@ -399,7 +377,6 @@
     line-height: 16px;
     text-align: center;
 }
-
 
 /* --------------------------------------------------------------------------
    10. CTA
@@ -662,6 +639,28 @@
    Animation
 -------------------------------------------------------------------------- */
 
+.syw-section-title,
+.syw-services-container,
+.syw-process-container,
+.syw-cta-container,
+.syw-contact-container {
+    animation: syw-scroll-fade-up 1.2s ease-out both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 40%;
+}
+
+@keyframes syw-scroll-fade-up {
+    from {
+        opacity: 0;
+        transform: translateY(130px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 @keyframes sywSkillBarGrow {
     from {
         transform: scaleX(0);
@@ -671,20 +670,6 @@
         transform: scaleX(1);
     }
 }
-
-@keyframes sywFadeUp {
-    from {
-        opacity: 0;
-        transform: translateY(24px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-
 /* --------------------------------------------------------------------------
    Responsive
 -------------------------------------------------------------------------- */
