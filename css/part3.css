@@ -1,12 +1,4 @@
-.jsh-portfolio-section {
-    padding: 60px 0;
-}
-.jsh-portfolio-container {
-    width: 88%;
-    max-width: 1300px;
-    margin: 0 auto;
-}
-/* Section Title */
+/* Title 공통 부분 */
 .jsh-section-title {
     text-align: center;
     padding-bottom: 60px;
@@ -40,6 +32,15 @@
     margin: 0 auto;
 }
 
+/*Portfolio section*/
+.jsh-portfolio-section {
+    padding: 60px 0;
+}
+.jsh-portfolio-container {
+    width: 88%;
+    max-width: 1300px;
+    margin: 0 auto;
+}
 /*Filter*/
 .jsh-portfolio-filter-wrap input {
     display: none;
@@ -291,38 +292,150 @@
     }
 }
 
-/* 등장 애니메이션 */
-.jsh-section-title h2,
-.jsh-section-title p,
+/* section 등장 애니메이션 */
+.jsh-section-title,
 .jsh-portfolio-filters,
-.jsh-portfolio-grid {
-    animation: jsh-fade-up 0.7s ease both;
+.jsh-portfolio-card,
+.jsh-team-card {
+    animation: jsh-scroll-fade-up 1.2s ease-out both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 40%;
 }
 
-.jsh-section-title h2 {
-    animation-delay: 0s;
-}
-
-.jsh-section-title p {
-    animation-delay: 0.15s;
-}
-
-.jsh-portfolio-filters {
-    animation-delay: 0.3s;
-}
-
-.jsh-portfolio-grid {
-    animation-delay: 0.45s;
-}
-
-@keyframes jsh-fade-up {
+@keyframes jsh-scroll-fade-up {
     from {
         opacity: 0;
-        transform: translateY(50px);
+        transform: translateY(130px);
     }
 
     to {
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+
+/*Team section*/
+.jsh-team-section {
+    padding: 60px 0;
+}
+.jsh-team-container {
+    width: 88%;
+    max-width: 1300px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+}
+.jsh-team-card {
+    background-color: #ffffff;
+    display:flex;
+    align-items: center;
+    gap: 30px;
+    padding: 30px;
+    border-radius: 5px;
+    box-shadow: 0 2px 25px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease;
+}
+.jsh-team-card:hover {
+    transform: translateY(-8px);
+}
+
+.jsh-team-img {
+    width: 150px; height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+.jsh-team-info {
+    flex:1;
+}
+.jsh-team-info h3 {
+    font-size: 20px;
+    font-weight: 700;
+    color:#37517e;
+    padding: 5px;
+    margin-bottom: 6px;
+}
+.jsh-team-info span {
+    display: block;
+    font-size: 15px;
+    color:#444444;
+    margin-bottom: 10px;
+}
+.jsh-member-line {
+    width: 50px;
+    height: 1px;
+    background-color: #dddddd;
+    margin-bottom: 12px;
+}
+.jsh-team-info p {
+    font-size: 14px;
+    line-height: 1.5;
+    color:#444444;
+    margin-bottom: 14px;
+}
+.jsh-team-social {
+    display: flex;
+    gap: 10px;
+}
+.jsh-team-social a {
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    background-color: #f3f5f6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.jsh-team-social a img {
+    width: 18px; height: 18px;
+    object-fit: contain;
+}
+.jsh-team-social a:hover {
+    background-color: #47b2e4;
+}
+.jsh-team-social a:hover img {
+    opacity: 1;
+    filter: brightness(0) invert(1);
+}
+/*반응형*/
+@media (max-width: 992px) {
+    .jsh-team-container {
+        width: 75%;
+        max-width: 960px;
+        grid-template-columns: 1fr;
+    }
+    .jsh-team-card {
+        padding: 40px;
+        gap: 40px;
+    }
+}
+@media (max-width: 576px) {
+    .jsh-team-section {
+        padding: 50px 0;
+    }
+    .jsh-team-container {
+        width: 90%;
+    }
+    .jsh-team-card {
+        gap: 20px;
+        padding: 28px 24px;
+        text-align: left;
+
+    }
+    .jsh-team-img {
+        width: 120px;
+        height: 120px;
+    }
+    .jsh-team-info {
+        text-align: left;
+        flex: 1;
+        min-width: 0;
+    }
+    .jsh-member-line {
+        margin: 0 0 12px;
+    }
+    .jsh-team-social {
+        justify-content: flex-start;
     }
 }
