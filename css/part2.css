@@ -198,7 +198,7 @@
 }
 .syw-service-item {
     background-color: var(--white);
-    min-height: 300px;
+    min-height: 270px;
     padding: 40px 30px;
     border-radius: 4px;
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.06);
@@ -209,15 +209,15 @@
 }
 .syw-service-item:hover {
     transform: translateY(-10px);
-    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.09);
+    box-shadow: 0 12px 37px rgba(0, 0, 0, 0.09);
 }   
 .syw-service-icon {
     margin-bottom: 24px;
 }
 .syw-service-icon img {
     display: block;
-    width: 45px;
-    height: 45px;
+    width: 47px;
+    height: 47px;
     object-fit: contain;
 }
 .syw-service-title {
@@ -225,7 +225,7 @@
 }
 .syw-service-title a {
     color: var(--primary-color);
-    font-size: 22px;
+    font-size: 20px;
     font-weight: 700;
     line-height: 1.15;
     transition: color 0.3s;
@@ -233,7 +233,6 @@
 .syw-service-item:hover .syw-service-title a {
     color: var(--secondary-color);
 }
-
 .syw-service-desc {
     color: var(--text-color);
     font-size: 15px;
